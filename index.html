@@ -10,16 +10,43 @@
     <style>
         /* Reset e Estilos Globais */
         :root {
+            /* Cores */
             --primary: #e74c3c; /* Vermelho vibrante */
             --primary-dark: #c0392b; /* Vermelho mais escuro para hover */
             --secondary: #2c3e50; /* Azul escuro quase preto, para títulos */
             --secondary-light: #34495e; /* Um pouco mais claro */
-            --light: #f4f7f6; /* Fundo suave */
+            --light: #f8f9fa; /* Fundo suave para blocos */
+            --lighter: #f4f7f6; /* Fundo geral da página */
             --dark: #333; /* Texto geral */
             --gray: #7f8c8d; /* Texto secundário */
             --white: #fff;
-            --shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+
+            /* Sombras */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra mais sutil */
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra média */
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra pronunciada */
+
+            /* Transições */
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição suave e moderna */
+
+            /* Bordas */
+            --border-radius: 12px; /* Padrão para elementos */
+            --border-radius-lg: 18px; /* Maior para elementos como galeria/cards principais */
+
+            /* Espaçamento (opcional, para consistência) */
+            --spacing-xs: 10px;
+            --spacing-sm: 20px;
+            --spacing-md: 40px;
+            --spacing-lg: 60px;
+            --spacing-xl: 80px;
+
+            /* Tipografia (opcional, para consistência) */
+            --font-size-base: 1rem; /* ~16px */
+            --font-size-sm: 0.9rem;
+            --font-size-md: 1.1rem;
+            --font-size-lg: 1.25rem;
+            --font-size-h1: 3rem; /* Ajustado em seções específicas */
+            --font-size-h2: 2.5rem;
         }
         
         * {
@@ -30,46 +57,48 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
+            background-color: var(--lighter);
             color: var(--dark);
-            line-height: 1.7; /* Aumentado para melhor leitura */
+            line-height: 1.7; 
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif; /* Títulos com Montserrat */
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: var(--secondary);
+            line-height: 1.2;
         }
 
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transition);
         }
 
         img {
             max-width: 100%;
             height: auto;
-            display: block; /* Remove espaço extra abaixo da imagem */
+            display: block;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 25px; /* Aumentado o padding lateral */
+            padding: 0 var(--spacing-sm); /* Usando variável */
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px; /* Aumentado o espaçamento */
+            margin-bottom: var(--spacing-lg); 
         }
 
         .section-title h2 {
-            font-size: 2.8rem; /* Aumentado o tamanho da fonte */
+            font-size: var(--font-size-h1); 
             position: relative;
             display: inline-block;
-            padding-bottom: 20px;
+            padding-bottom: var(--spacing-xs);
         }
 
         .section-title h2::after {
@@ -78,38 +107,44 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px; /* Mais longo */
-            height: 5px; /* Mais grosso */
+            width: 100px; 
+            height: 5px; 
             background-color: var(--primary);
             border-radius: 3px;
         }
 
         .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), #f39c12); /* Gradiente */
+            display: inline-flex; 
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+            background: linear-gradient(135deg, var(--primary), #f39c12);
             color: var(--white);
-            padding: 14px 35px; /* Padding ajustado */
+            padding: 15px 40px; 
             border-radius: 50px;
-            font-weight: 600; /* Mais negrito */
+            font-weight: 600;
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-size: 1.05rem;
-            box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4); /* Sombra mais suave */
-            letter-spacing: 0.5px; /* Espaçamento entre letras */
+            font-size: var(--font-size-base);
+            box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+            letter-spacing: 0.5px;
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, var(--primary-dark), #e67e22); /* Gradiente no hover */
-            transform: translateY(-5px); /* Mais deslocamento */
+            background: linear-gradient(135deg, var(--primary-dark), #e67e22);
+            transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(231, 76, 60, 0.5);
         }
+        .btn i {
+            font-size: 1.1em;
+        }
 
-        /* Animação de entrada genérica */
+        /* Animação de entrada genérica (Scroll Reveal) */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s ease-out; 
         }
 
         .fade-in.active {
@@ -120,45 +155,46 @@
         /* Header */
         header {
             background-color: var(--white);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra mais sutil */
+            box-shadow: var(--shadow-sm);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            transition: var(--transition);
+            transition: all 0.3s ease-in-out; 
+            padding: var(--spacing-sm) 0; 
         }
 
         header.scrolled {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            padding: 10px 0; /* Diminui um pouco ao rolar */
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-xs) 0; 
+            background-color: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(5px); 
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0; /* Aumentado o padding */
         }
 
         .logo {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
         .logo img {
-            height: 60px; /* Aumentado o tamanho do logo */
-            margin-right: 12px;
+            height: 55px; 
+            width: auto;
         }
 
         .logo h1 {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             color: var(--secondary);
             letter-spacing: -0.5px;
         }
 
         .logo span {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 2rem; /* Tamanho maior para o span */
+            font-size: 1.9rem; 
             background: linear-gradient(135deg, #e74c3c, #f39c12);
             -webkit-background-clip: text;
             background-clip: text;
@@ -173,7 +209,7 @@
         }
 
         nav ul li {
-            margin-left: 35px; /* Mais espaçamento */
+            margin-left: var(--spacing-md); 
             position: relative;
         }
 
@@ -181,23 +217,25 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
-            padding: 5px 0;
-            color: var(--secondary-light); /* Cor do link padrão */
+            padding: 8px 0; 
+            color: var(--secondary-light);
+            font-size: var(--font-size-base);
         }
 
         nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: -8px; /* Mais abaixo */
+            bottom: -5px; 
             left: 0;
             width: 0;
-            height: 3px; /* Mais grosso */
+            height: 3px; 
             background-color: var(--primary);
+            border-radius: 2px;
             transition: var(--transition);
         }
 
         nav ul li a:hover::after,
-        nav ul li a.active::after { /* Novo: active para indicar a seção atual */
+        nav ul li a.active::after {
             width: 100%;
         }
 
@@ -210,7 +248,7 @@
             display: none;
             background: none;
             border: none;
-            font-size: 2.2rem; /* Ícone maior */
+            font-size: 2.5rem; 
             color: var(--secondary);
             cursor: pointer;
             z-index: 1001;
@@ -223,38 +261,38 @@
 
         /* Banner Principal */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('assets/fundo.jpg'); /* Overlay mais escuro */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/fundo.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             height: 100vh;
-            min-height: 700px; /* Altura mínima ajustada */
+            min-height: 600px; 
             display: flex;
             align-items: center;
             text-align: center;
             color: var(--white);
-            padding-top: 80px;
+            padding-top: var(--spacing-xl);
             position: relative;
         }
 
         .hero-content {
-            max-width: 900px; /* Maior largura */
+            max-width: 900px;
             margin: 0 auto;
-            animation: fadeInUp 1.2s ease forwards; /* Animação um pouco mais lenta */
-            opacity: 0; /* Começa invisível */
+            animation: fadeInUp 1.5s ease forwards; 
+            opacity: 0; 
         }
 
         .hero h2 {
-            font-size: 4rem; /* Título maior */
-            margin-bottom: 25px;
+            font-size: 4.5rem; 
+            margin-bottom: var(--spacing-sm);
             line-height: 1.1;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
             color: var(--white);
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
             opacity: 0.95;
             max-width: 700px;
             margin-left: auto;
@@ -263,79 +301,35 @@
 
         /* Seções */
         section {
-            padding: 120px 0; /* Mais padding entre seções */
+            padding: var(--spacing-xl) 0; 
             position: relative;
             overflow: hidden;
         }
 
-        /* Seção Sobre */
-        .about {
-            background-color: var(--white);
-        }
-
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 60px; /* Mais espaço entre os elementos */
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 350px; /* Largura mínima ajustada */
-        }
-
-        .about-text h3 {
-            font-size: 2.2rem; /* Título maior */
-            margin-bottom: 25px;
-            color: var(--secondary);
-        }
-
-        .about-text p {
-            margin-bottom: 18px;
-            color: var(--gray);
-            font-size: 1.05rem;
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 350px; /* Largura mínima ajustada */
-            border-radius: 15px; /* Bordas mais arredondadas */
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .about-image img {
-            transition: var(--transition);
-        }
-
-        .about-image:hover img {
-            transform: scale(1.08); /* Efeito de zoom mais pronunciado */
-        }
-
         /* Seção Imóveis */
         .properties {
-            background-color: var(--light); /* Mudança para light para contraste */
+            background-color: var(--lighter); 
         }
 
         .properties-filter {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: var(--spacing-md);
             flex-wrap: wrap;
-            gap: 15px; /* Mais espaço entre botões */
+            gap: var(--spacing-xs); 
         }
 
         .filter-btn {
-            padding: 12px 28px;
+            padding: 12px 30px;
             background-color: var(--white);
-            border: 1px solid #e0e0e0; /* Borda mais suave */
+            border: 1px solid #e0e0e0; 
             border-radius: 50px;
             cursor: pointer;
             transition: var(--transition);
             font-weight: 600;
             color: var(--dark);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm);
+            font-size: var(--font-size-base);
         }
 
         .filter-btn.active, .filter-btn:hover {
@@ -349,8 +343,8 @@
         .location-filter {
             display: flex;
             justify-content: center;
-            margin-bottom: 50px;
-            gap: 20px; /* Mais espaço */
+            margin-bottom: var(--spacing-lg);
+            gap: var(--spacing-sm); 
             flex-wrap: wrap;
         }
 
@@ -360,11 +354,11 @@
             border: 1px solid #ddd;
             background-color: var(--white);
             cursor: pointer;
-            min-width: 220px; /* Largura mínima */
+            min-width: 250px; 
             transition: var(--transition);
-            font-size: 1rem;
+            font-size: var(--font-size-base);
             color: var(--dark);
-            appearance: none; /* Remove seta padrão do select */
+            appearance: none; 
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 15px center;
@@ -379,42 +373,50 @@
 
         .properties-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Mínimo um pouco maior */
-            gap: 35px; /* Mais espaço entre cards */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: var(--spacing-md); 
         }
 
         .property-card {
             background-color: var(--white);
-            border-radius: 15px; /* Bordas mais arredondadas */
+            border-radius: var(--border-radius-lg); 
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
         }
+        .property-card .property-link {
+            display: block; /* Garante que o link ocupe todo o card */
+            height: 100%;
+        }
 
         .property-card:hover {
-            transform: translateY(-12px); /* Mais deslocamento */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+            transform: translateY(-10px); 
+            box-shadow: var(--shadow-lg); 
         }
 
         .property-card img {
             width: 100%;
-            height: 240px; /* Altura da imagem ajustada */
+            height: 250px; 
             object-fit: cover;
             border-bottom: 1px solid #f0f0f0;
+            transition: transform 0.5s ease;
+        }
+        .property-card:hover img {
+            transform: scale(1.05);
         }
 
         .property-info {
-            padding: 25px;
-            flex-grow: 1; /* Faz o info preencher o espaço restante */
+            padding: var(--spacing-sm);
+            flex-grow: 1; 
             display: flex;
             flex-direction: column;
         }
 
         .property-info h3 {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
+            font-size: 1.7rem;
+            margin-bottom: var(--spacing-xs);
             color: var(--secondary);
             line-height: 1.3;
         }
@@ -422,75 +424,121 @@
         .property-info p {
             margin-bottom: 10px;
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: var(--font-size-base);
         }
 
         .property-info .price {
-            font-size: 1.5rem; /* Preço maior */
+            font-size: 1.6rem; 
             color: var(--primary);
             font-weight: 700;
-            margin: 18px 0; /* Mais espaçamento */
-            align-self: flex-start; /* Alinha o preço à esquerda */
+            margin: var(--spacing-sm) 0; 
+            align-self: flex-start; 
         }
 
         .property-details {
             display: flex;
             justify-content: space-between;
-            margin-top: auto; /* Empurra para o final do card */
-            padding-top: 20px;
+            margin-top: auto; 
+            padding-top: var(--spacing-sm);
             border-top: 1px solid #eee;
+            font-size: var(--font-size-base);
         }
 
         .detail {
             display: flex;
             align-items: center;
-            font-size: 0.95rem;
+            gap: 6px;
             color: var(--secondary-light);
         }
 
         .detail i {
-            margin-right: 7px;
             color: var(--primary);
-            font-size: 1.1rem;
+            font-size: 1.1em;
+        }
+
+        /* Seção Sobre */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--spacing-lg); 
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 380px; 
+        }
+
+        .about-text h3 {
+            font-size: 2.5rem; 
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary);
+        }
+
+        .about-text p {
+            margin-bottom: var(--spacing-xs);
+            color: var(--gray);
+            font-size: var(--font-size-md);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 380px; 
+            border-radius: var(--border-radius-lg); 
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05); 
         }
 
         /* Seção Depoimentos */
         .testimonials {
-            background-color: var(--white);
+            background-color: var(--lighter);
         }
 
         .testimonials-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
         }
 
         .testimonial-card {
-            background-color: var(--light);
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            background-color: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
             position: relative;
             transition: var(--transition);
-            border-left: 5px solid var(--primary); /* Linha de destaque */
+            border-left: 6px solid var(--primary); 
         }
 
         .testimonial-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-md);
         }
 
         .testimonial-card::before {
-            content: '\201C'; /* Aspas tipográficas */
+            content: '\201C'; 
             font-family: serif;
-            font-size: 6rem; /* Aspas maiores */
+            font-size: 7rem; 
             color: var(--primary);
-            opacity: 0.15;
+            opacity: 0.1;
             position: absolute;
-            top: 5px;
+            top: 10px;
             left: 20px;
             line-height: 1;
+            z-index: 0;
         }
 
         .testimonial-content {
@@ -500,130 +548,131 @@
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 25px;
+            margin-bottom: var(--spacing-sm);
             color: var(--dark);
             line-height: 1.8;
+            font-size: var(--font-size-md);
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            margin-top: 20px;
+            margin-top: var(--spacing-sm);
         }
 
         .testimonial-author img {
-            width: 70px; /* Imagem maior */
-            height: 70px;
+            width: 75px; 
+            height: 75px;
             border-radius: 50%;
             object-fit: cover;
-            margin-right: 18px;
-            border: 4px solid var(--primary); /* Borda mais grossa */
+            margin-right: var(--spacing-xs);
+            border: 4px solid var(--primary); 
             box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
         }
 
         .author-info h4 {
             margin-bottom: 5px;
-            font-size: 1.2rem;
+            font-size: var(--font-size-lg);
             color: var(--secondary);
         }
 
         .author-info p {
             color: var(--gray);
-            font-size: 0.9rem;
+            font-size: var(--font-size-base);
         }
 
         /* Seção Parceiros */
         .partners {
-            background-color: var(--light);
+            background-color: var(--white);
         }
 
         .partners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* logos um pouco maiores */
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+            gap: var(--spacing-lg);
             align-items: center;
             justify-items: center;
         }
 
         .partner-logo {
-            max-width: 200px;
+            max-width: 220px; 
             height: auto;
-            filter: grayscale(80%); /* Mais cinza */
-            opacity: 0.6;
+            filter: grayscale(90%); 
+            opacity: 0.7;
             transition: var(--transition);
-            padding: 15px;
+            padding: var(--spacing-xs);
         }
 
         .partner-logo:hover {
             filter: grayscale(0%);
             opacity: 1;
-            transform: scale(1.15); /* Zoom maior */
+            transform: scale(1.1); 
         }
 
         /* Seção Contato */
         .contact {
-            background-color: var(--white);
+            background-color: var(--lighter);
         }
 
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 60px; /* Mais espaço */
+            gap: var(--spacing-lg); 
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: var(--spacing-md);
         }
 
         .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: var(--spacing-sm);
             color: var(--secondary);
         }
 
         .info-item {
             display: flex;
-            gap: 20px;
-            align-items: flex-start; /* Alinha o ícone com o texto */
+            gap: var(--spacing-sm);
+            align-items: flex-start; 
         }
 
         .info-item i {
-            font-size: 1.5rem; /* Ícone maior */
+            font-size: 1.6rem; 
             color: var(--primary);
             margin-top: 5px;
-            width: 30px; /* Garante alinhamento */
+            width: 35px; 
             text-align: center;
         }
 
         .info-content h4 {
             margin-bottom: 8px;
-            font-size: 1.2rem;
+            font-size: var(--font-size-lg);
             color: var(--secondary);
         }
 
         .info-content p {
             color: var(--gray);
-            font-size: 1.05rem;
+            font-size: var(--font-size-md);
             line-height: 1.6;
         }
 
         .contact-form {
-            background-color: var(--light); /* Fundo mais claro para o form */
-            padding: 40px; /* Mais padding */
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+            background-color: var(--light); 
+            padding: 45px; 
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
         }
 
         .contact-form h3 {
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 2.2rem;
+            margin-bottom: var(--spacing-md);
             color: var(--secondary);
         }
 
         .form-group {
-            margin-bottom: 25px; /* Mais espaço entre grupos */
+            margin-bottom: var(--spacing-sm); 
         }
 
         .form-group label {
@@ -631,17 +680,17 @@
             margin-bottom: 10px;
             font-weight: 600;
             color: var(--secondary-light);
-            font-size: 1.05rem;
+            font-size: var(--font-size-md);
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 15px 18px; /* Padding maior */
+            padding: 16px 20px; 
             border: 1px solid #ddd;
-            border-radius: 8px; /* Bordas mais arredondadas */
-            font-size: 1.05rem;
+            border-radius: 10px; 
+            font-size: var(--font-size-base);
             font-family: 'Poppins', sans-serif;
             transition: var(--transition);
             background-color: var(--white);
@@ -657,27 +706,27 @@
         }
 
         .form-group textarea {
-            height: 180px; /* Altura maior */
+            height: 200px; 
             resize: vertical;
         }
 
         /* Rodapé */
         footer {
-            background-color: var(--secondary); /* Cor principal do rodapé */
+            background-color: var(--secondary); 
             color: var(--white);
-            padding: 80px 0 40px; /* Mais padding */
+            padding: var(--spacing-xl) 0 var(--spacing-md); 
         }
 
         .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
         }
 
         .footer-col h3 {
-            font-size: 1.6rem;
-            margin-bottom: 30px;
+            font-size: 1.7rem;
+            margin-bottom: var(--spacing-sm);
             position: relative;
             padding-bottom: 18px;
             color: var(--white);
@@ -688,13 +737,13 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px; /* Mais longo */
-            height: 4px; /* Mais grosso */
+            width: 60px; 
+            height: 4px; 
             background-color: var(--primary);
         }
 
         .footer-col p {
-            margin-bottom: 25px;
+            margin-bottom: var(--spacing-sm);
             opacity: 0.9;
             line-height: 1.7;
         }
@@ -708,31 +757,31 @@
             color: rgba(255, 255, 255, 0.9);
             transition: var(--transition);
             display: inline-block;
-            font-size: 1.05rem;
+            font-size: var(--font-size-md);
         }
 
         .footer-links a:hover {
             color: var(--primary);
-            transform: translateX(8px); /* Mais deslocamento */
+            transform: translateX(8px); 
         }
 
         .social-links {
             display: flex;
-            gap: 18px; /* Mais espaço */
-            margin-top: 25px;
+            gap: var(--spacing-xs); 
+            margin-top: var(--spacing-sm);
         }
 
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px; /* Ícone maior */
-            height: 45px;
-            background-color: rgba(255, 255, 255, 0.15); /* Mais opaco */
+            width: 48px; 
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.15); 
             color: var(--white);
             border-radius: 50%;
             transition: var(--transition);
-            font-size: 1.2rem;
+            font-size: var(--font-size-lg);
         }
 
         .social-links a:hover {
@@ -742,9 +791,9 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 40px;
+            padding-top: var(--spacing-md);
             border-top: 1px solid rgba(255, 255, 255, 0.15);
-            font-size: 0.95rem;
+            font-size: var(--font-size-sm);
             opacity: 0.8;
         }
 
@@ -753,15 +802,15 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 55px; /* Maior */
-            height: 55px;
-            background: linear-gradient(45deg, var(--primary), #f39c12); /* Gradiente */
+            width: 60px; 
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary), #f39c12); 
             color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             z-index: 999;
             opacity: 0;
@@ -785,7 +834,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -796,199 +845,275 @@
         /* Responsividade */
         @media (max-width: 1200px) {
             .hero h2 {
-                font-size: 3.5rem;
-            }
-            .container {
-                padding: 0 20px;
+                font-size: 4rem;
             }
         }
 
         @media (max-width: 992px) {
             section {
-                padding: 100px 0;
+                padding: var(--spacing-xl) 0; 
             }
             
+            .section-title {
+                margin-bottom: var(--spacing-lg);
+            }
             .section-title h2 {
-                font-size: 2.5rem;
+                font-size: var(--font-size-h2);
             }
 
             .hero {
-                min-height: 650px;
+                min-height: 550px;
+                padding: var(--spacing-xl) 0 var(--spacing-lg);
             }
             .hero h2 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .hero p {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
 
+            /* About - Mobile first stack */
             .about-content {
-                gap: 40px;
+                gap: var(--spacing-md);
+                flex-direction: column;
+            }
+            .about-image {
+                order: -1; 
+                min-width: unset;
+                width: 100%;
+            }
+            .about-text {
+                min-width: unset;
+                width: 100%;
+            }
+            .about-text h3 {
+                font-size: 2.2rem;
             }
 
             .properties-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+                gap: var(--spacing-md);
             }
             .property-card img {
-                height: 200px;
+                height: 220px;
+            }
+            .property-info h3 {
+                font-size: var(--font-size-lg);
+            }
+            .property-info .price {
+                font-size: var(--font-size-lg);
             }
 
             .testimonials-container {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: var(--spacing-md);
+            }
+            .testimonial-card {
+                padding: var(--spacing-md);
+            }
+            .testimonial-card::before {
+                font-size: 6rem;
+                left: 15px;
+            }
+            .testimonial-text {
+                font-size: var(--font-size-base);
+            }
+            .author-info h4 {
+                font-size: var(--font-size-lg);
+            }
+
+            .partners-grid {
+                gap: var(--spacing-md);
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            .partner-logo {
+                max-width: 180px;
+            }
+
+            .contact-container {
+                gap: var(--spacing-md);
+                grid-template-columns: 1fr;
+            }
+            .contact-info h3, .contact-form h3 {
+                font-size: 2rem;
+            }
+            .info-item i {
+                font-size: 1.5rem;
+            }
+            .contact-form {
+                padding: 35px;
             }
         }
 
         @media (max-width: 768px) {
             .header-container {
-                padding: 15px;
+                padding: var(--spacing-sm); 
             }
 
             nav {
                 position: fixed;
                 top: 0;
                 left: -100%;
-                width: 300px; /* Largura maior */
+                width: 280px; 
                 height: 100vh;
                 background-color: var(--white);
                 box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-                transition: var(--transition);
+                transition: transform 0.5s ease-in-out; 
                 z-index: 1000;
-                padding-top: 100px; /* Mais espaço para o menu */
+                padding-top: 100px;
+                transform: translateX(0%); /* Reseta para mobile */
             }
 
             nav.active {
-                left: 0;
+                transform: translateX(100%);
             }
 
             nav ul {
                 flex-direction: column;
-                padding: 30px;
+                padding: var(--spacing-md);
             }
 
             nav ul li {
-                margin: 20px 0;
+                margin: var(--spacing-sm) 0;
             }
 
             nav ul li a {
-                font-size: 1.2rem;
+                font-size: var(--font-size-lg);
             }
 
             .mobile-menu-btn {
                 display: block;
+                position: relative; 
+                z-index: 1002;
+            }
+            
+            .logo {
+                width: auto; 
             }
 
             .hero {
-                height: auto;
-                min-height: auto;
-                padding: 150px 0 100px;
+                padding: 100px 0 70px;
             }
 
             .hero h2 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
 
             .hero p {
                 font-size: 1.2rem;
             }
 
-            .about-content {
-                flex-direction: column;
-                gap: 30px;
+            .filter-btn, .location-select {
+                width: 100%; 
+                max-width: 350px; 
             }
-            
-            .about-image {
-                order: -1;
+            .properties-filter, .location-filter {
+                gap: var(--spacing-xs);
             }
 
-            .contact-container {
-                gap: 40px;
+            .contact-form {
+                padding: 30px;
             }
-            .contact-info h3, .contact-form h3 {
+            .contact-form h3 {
                 font-size: 1.8rem;
             }
-            .info-item i {
-                font-size: 1.4rem;
+            .form-group input, .form-group textarea, .form-group select {
+                padding: 12px 15px;
+                font-size: var(--font-size-base);
+            }
+            .form-group textarea {
+                height: 150px;
             }
         }
 
         @media (max-width: 576px) {
-            section {
-                padding: 80px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
             .hero h2 {
                 font-size: 2.5rem;
             }
-            
             .hero p {
-                font-size: 1.1rem;
+                font-size: var(--font-size-md);
             }
-            
-            .btn {
-                padding: 12px 30px;
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            .about-text h3 {
+                font-size: 2rem;
+            }
+            .property-card img {
+                height: 180px;
+            }
+            .property-info h3 {
+                font-size: 1.4rem;
+            }
+            .property-info .price {
+                font-size: 1.3rem;
+            }
+            .testimonial-card {
+                padding: 25px;
+            }
+            .testimonial-card::before {
+                font-size: 5rem;
+                left: 10px;
+            }
+            .testimonial-text {
+                font-size: var(--font-size-sm);
+            }
+            .author-info h4 {
+                font-size: var(--font-size-base);
+            }
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .partner-logo {
+                max-width: 150px;
+            }
+            .contact-info h3, .contact-form h3 {
+                font-size: 1.6rem;
+            }
+            .info-item i {
+                font-size: 1.3rem;
+            }
+            .info-content h4 {
+                font-size: var(--font-size-base);
+            }
+            .info-content p {
+                font-size: var(--font-size-sm);
+            }
+            .footer-container {
+                gap: 30px;
+            }
+            .footer-col h3 {
+                font-size: 1.4rem;
+            }
+            .footer-col p, .footer-links a, .social-links a {
+                font-size: 0.9rem;
+            }
+            .social-links a {
+                width: 35px;
+                height: 35px;
                 font-size: 1rem;
             }
-            
-            .properties-filter, .location-filter {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-            }
-            
-            .filter-btn, .location-select {
-                width: 90%; /* Ocupa mais largura */
-                max-width: 300px;
-                text-align: center;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .logo img {
-                height: 45px;
-            }
-            .logo h1 {
-                font-size: 1.5rem;
-            }
-            .logo span {
-                font-size: 1.7rem;
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                bottom: 20px;
+                right: 20px;
             }
         }
 
         @media (max-width: 400px) {
             .hero h2 {
-                font-size: 2.2rem;
+                font-size: 2.1rem;
             }
             .hero p {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             .section-title h2 {
-                font-size: 1.6rem;
-            }
-            .about-text h3 {
                 font-size: 1.8rem;
             }
-            .property-info h3 {
-                font-size: 1.3rem;
-            }
-            .property-info .price {
-                font-size: 1.2rem;
-            }
-            .testimonial-card::before {
-                font-size: 5rem;
-            }
-            .testimonial-author img {
-                width: 50px;
-                height: 50px;
-            }
-            .contact-info h3, .contact-form h3 {
+            .about-text h3 {
                 font-size: 1.6rem;
             }
         }
@@ -1007,9 +1132,7 @@
             <nav id="mainNav">
                 <ul>
                     <li><a href="#home">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#properties">Imóveis</a></li>
-                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#properties">Imóveis</a></li> <li><a href="#about">Sobre</a></li> <li><a href="#testimonials">Depoimentos</a></li>
                     <li><a href="#contact">Contato</a></li>
                 </ul>
             </nav>
@@ -1019,33 +1142,12 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <h2>Encontre o imóvel dos seus sonhos</h2>
-            <p>A FN Empreendimentos oferece as melhores opções de imóveis para compra, venda e locação em toda a região, com atendimento personalizado e seguro.</p>
-            <a href="#properties" class="btn">Ver Imóveis</a>
+            <p>A FN Empreendimentos oferece as melhores opções de imóveis para compra, venda e locação em Curitiba e região, com atendimento personalizado e seguro.</p>
+            <a href="#properties" class="btn">Ver Imóveis <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
-    <section class="about fade-in" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Sobre Nós</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Descubra a FN Empreendimentos</h3>
-                        <p>Com mais de 6 anos de atuação no mercado, a FN Empreendimentos se destaca por conectar pessoas aos imóveis ideais, sempre com foco nas necessidades e sonhos de cada cliente.</p>
-                        <p>Nossa equipe de corretores é formada por profissionais experientes e comprometidos em oferecer um atendimento próximo, ágil e totalmente personalizado.</p>
-                        <p>Trabalhamos com transparência, ética e dedicação, garantindo segurança e tranquilidade em cada etapa da sua jornada imobiliária.</p>
-                    <a href="#contact" class="btn">Fale Conosco</a>
-                </div>
-                <div class="about-image">
-                    <img src="assets/fnempresa.png" alt="Sobre a FN Empreendimentos">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="properties fade-in" id="properties">
-        <div class="container">
+    <section class="properties fade-in" id="properties"> <div class="container">
             <div class="section-title">
                 <h2>Imóveis em Destaque</h2>
             </div>
@@ -1062,6 +1164,7 @@
                     <option value="curitiba">Curitiba</option>
                     <option value="saojose">São José dos Pinhais</option>
                     <option value="tijucas">Tijucas do Sul</option>
+                    <option value="pinhais">Pinhais</option> 
                 </select>
                 <select id="neighborhoodFilter" class="location-select">
                     <option value="all">Todos os Bairros</option>
@@ -1074,113 +1177,161 @@
                 </select>
             </div>
             <div class="properties-grid">
-                <div class="property-card" data-category="apartment" data-city="curitiba" data-neighborhood="bairro-nobre">
-                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Luxo">
-                    <div class="property-info">
-                        <h3>Apartamento de Luxo</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Bairro Nobre, Curitiba</p>
-                        <p class="price">R$ 1.200.000</p>
-                        <div class="property-details">
-                            <div class="detail"><i class="fas fa-bed"></i> 3 Quartos</div>
-                            <div class="detail"><i class="fas fa-bath"></i> 2 Banheiros</div>
-                            <div class="detail"><i class="fas fa-ruler-combined"></i> 120m²</div>
+                <div class="property-card" data-category="apartment" data-city="pinhais" data-neighborhood="centro">
+                    <a href="apgransantorini.html" class="property-link"> 
+                        <img src="assets/grandsant/frentebaixa.PNG" alt="Grand Santorini Residencial">
+                        <div class="property-info">
+                            <h3>Grand Santorini Residencial</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Centro, Pinhais</p>
+                            <p class="price">Preço sob Consulta</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 2 Quartos + 1 Suíte</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 2 Banheiros</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 88,32m²</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="property-card" data-category="apartment" data-city="curitiba" data-neighborhood="bairro-nobre">
+                    <a href="imovel1.html" class="property-link"> 
+                        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Luxo">
+                        <div class="property-info">
+                            <h3>Apartamento de Luxo</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Nobre, Curitiba</p>
+                            <p class="price">R$ 1.200.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 3 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 2 Banheiros</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 120m²</div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="property-card" data-category="house" data-city="saojose" data-neighborhood="bairro-residencial">
-                    <img src="assets/casaveia.jpg" alt="Casa Familiar">
-                    <div class="property-info">
-                        <h3>Casa Familiar</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Bairro Residencial, São José dos Pinhais</p>
-                        <p class="price">R$ 850.000</p>
-                        <div class="property-details">
-                            <div class="detail"><i class="fas fa-bed"></i> 4 Quartos</div>
-                            <div class="detail"><i class="fas fa-bath"></i> 3 Banheiros</div>
-                            <div class="detail"><i class="fas fa-ruler-combined"></i> 220m²</div>
+                    <a href="#" class="property-link">
+                        <img src="assets/casaveia.jpg" alt="Casa Familiar">
+                        <div class="property-info">
+                            <h3>Casa Familiar</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Residencial, São José dos Pinhais</p>
+                            <p class="price">R$ 850.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 4 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 3 Banheiros</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 220m²</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="property-card" data-category="commercial" data-city="curitiba" data-neighborhood="centro">
-                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sala Comercial">
-                    <div class="property-info">
-                        <h3>Sala Comercial</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Centro, Curitiba</p>
-                        <p class="price">R$ 600.000</p>
-                        <div class="property-details">
-                            <div class="detail"><i class="fas fa-door-open"></i> 2 Salas</div>
-                            <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
-                            <div class="detail"><i class="fas fa-ruler-combined"></i> 80m²</div>
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sala Comercial">
+                        <div class="property-info">
+                            <h3>Sala Comercial</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Centro, Curitiba</p>
+                            <p class="price">R$ 600.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-door-open"></i> 2 Salas</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 80m²</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="property-card" data-category="apartment rent" data-city="curitiba" data-neighborhood="bairro-central">
-                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento para Alugar">
-                    <div class="property-info">
-                        <h3>Apartamento para Alugar</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Bairro Central, Curitiba</p>
-                        <p class="price">R$ 2.500/mês</p>
-                        <div class="property-details">
-                            <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
-                            <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
-                            <div class="detail"><i class="fas fa-ruler-combined"></i> 70m²</div>
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento para Alugar">
+                        <div class="property-info">
+                            <h3>Apartamento para Alugar</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Central, Curitiba</p>
+                            <p class="price">R$ 2.500/mês</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 70m²</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="property-card" data-category="house" data-city="saojose" data-neighborhood="bairro-jardim">
-                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa Moderna">
-                    <div class="property-info">
-                        <h3>Casa Moderna</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Bairro Jardim, São José dos Pinhais</p>
-                        <p class="price">R$ 1.500.000</p>
-                        <div class="property-details">
-                            <div class="detail"><i class="fas fa-bed"></i> 5 Quartos</div>
-                            <div class="detail"><i class="fas fa-bath"></i> 4 Banheiros</div>
-                            <div class="detail"><i class="fas fa-ruler-combined"></i> 350m²</div>
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa Moderna">
+                        <div class="property-info">
+                            <h3>Casa Moderna</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Jardim, São José dos Pinhais</p>
+                            <p class="price">R$ 1.500.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 5 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 4 Banheiros</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 350m²</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="property-card" data-category="apartment" data-city="tijucas" data-neighborhood="bairro-novo">
-                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Compacto">
-                    <div class="property-info">
-                        <h3>Apartamento Compacto</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Bairro Novo, Tijucas do Sul</p>
-                        <p class="price">R$ 450.000</p>
-                        <div class="property-details">
-                            <div class="detail"><i class="fas fa-bed"></i> 1 Quarto</div>
-                            <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
-                            <div class="detail"><i class="fas fa-ruler-combined"></i> 45m²</div>
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Compacto">
+                        <div class="property-info">
+                            <h3>Apartamento Compacto</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Novo, Tijucas do Sul</p>
+                            <p class="price">R$ 450.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 1 Quarto</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="property-card" data-category="house rent" data-city="curitiba" data-neighborhood="centro">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c759?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa para Alugar">
-                    <div class="property-info">
-                        <h3>Casa Charmosa para Alugar</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Centro, Curitiba</p>
-                        <p class="price">R$ 3.500/mês</p>
-                        <div class="property-details">
-                            <div class="detail"><i class="fas fa-bed"></i> 3 Quartos</div>
-                            <div class="detail"><i class="fas fa-bath"></i> 2 Banheiros</div>
-                            <div class="detail"><i class="fas fa-ruler-combined"></i> 150m²</div>
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c759?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa para Alugar">
+                        <div class="property-info">
+                            <h3>Casa Charmosa para Alugar</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Centro, Curitiba</p>
+                            <p class="price">R$ 3.500/mês</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 3 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 2 Banheiros</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                  <div class="property-card" data-category="apartment" data-city="saojose" data-neighborhood="bairro-residencial">
-                    <img src="https://images.unsplash.com/photo-1574362615436-08b5e90a501a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Confortável">
-                    <div class="property-info">
-                        <h3>Apartamento Confortável</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Bairro Residencial, São José dos Pinhais</p>
-                        <p class="price">R$ 720.000</p>
-                        <div class="property-details">
-                            <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
-                            <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
-                            <div class="detail"><i class="fas fa-ruler-combined"></i> 85m²</div>
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1574362615436-08b5e90a501a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Confortável">
+                        <div class="property-info">
+                            <h3>Apartamento Confortável</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Residencial, São José dos Pinhais</p>
+                            <p class="price">R$ 720.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="about fade-in" id="about"> <div class="container">
+            <div class="section-title">
+                <h2>Sobre Nós</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Descubra a FN Empreendimentos</h3>
+                        <p>Com mais de 6 anos de atuação no mercado, a FN Empreendimentos se destaca por conectar pessoas aos imóveis ideais, sempre com foco nas necessidades e sonhos de cada cliente.</p>
+                        <p>Nossa equipe de corretores é formada por profissionais experientes e comprometidos em oferecer um atendimento próximo, ágil e totalmente personalizado.</p>
+                        <p>Trabalhamos com transparência, ética e dedicação, garantindo segurança e tranquilidade em cada etapa da sua jornada imobiliária.</p>
+                    <a href="#contact" class="btn">Fale Conosco <i class="fas fa-phone-alt"></i></a>
+                </div>
+                <div class="about-image">
+                    <img src="assets/fnempresa.png" alt="Sobre a FN Empreendimentos">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="testimonials fade-in" id="testimonials">
         <div class="container">
             <div class="section-title">
@@ -1235,8 +1386,7 @@
             <div class="partners-grid">
                 <img src="assets/climb.png" alt="Climb Imobiliária" class="partner-logo">
                 <img src="assets/logoescrita.png" alt="FN Construções" class="partner-logo">
-                <img src="assets/parceiro3.png" alt="Banco Confiança" class="partner-logo">
-                <img src="assets/parceiro4.png" alt="Conecta Contabilidade" class="partner-logo">
+                <img src="assets/remax.png" alt="Banco Confiança" class="partner-logo">
             </div>
         </div>
     </section>
@@ -1329,8 +1479,8 @@
                     <h3>Links Úteis</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre Nós</a></li>
                         <li><a href="#properties">Imóveis</a></li>
+                        <li><a href="#about">Sobre Nós</a></li>
                         <li><a href="#testimonials">Depoimentos</a></li>
                         <li><a href="#contact">Contato</a></li>
                     </ul>
@@ -1360,7 +1510,7 @@
         // Menu Mobile
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
-        const navLinks = document.querySelectorAll('#mainNav ul li a'); // Seleciona todos os links do nav
+        const navLinks = document.querySelectorAll('#mainNav ul li a');
 
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
@@ -1369,7 +1519,7 @@
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active'); // Fecha o menu ao clicar no link
+                    mainNav.classList.remove('active'); 
                 }
             });
         });
@@ -1381,7 +1531,7 @@
         function activateMenuItem() {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - header.offsetHeight; // Ajuste para altura do header
+                const sectionTop = section.offsetTop - header.offsetHeight; 
                 const sectionHeight = section.clientHeight;
                 if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
                     current = section.getAttribute('id');
@@ -1397,7 +1547,7 @@
         }
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { // Adiciona 'scrolled' após rolar 50px
+            if (window.scrollY > 50) { 
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -1405,7 +1555,6 @@
             activateMenuItem();
         });
 
-        // Chamada inicial para ativar o link na seção ao carregar a página
         document.addEventListener('DOMContentLoaded', activateMenuItem);
 
         // Filtro de Imóveis (Ajustado para funcionar com cidade e bairro)
@@ -1429,7 +1578,7 @@
                 const neighborhoodMatch = selectedNeighborhood === 'all' || neighborhood === selectedNeighborhood;
                 
                 if (categoryMatch && cityMatch && neighborhoodMatch) {
-                    card.style.display = 'flex'; // Usar flex para manter o layout de coluna no card
+                    card.style.display = 'flex'; 
                 } else {
                     card.style.display = 'none';
                 }
@@ -1453,7 +1602,6 @@
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Simulação de envio
             alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
             contactForm.reset();
         });
@@ -1465,7 +1613,7 @@
                 
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                const headerOffset = header.offsetHeight; // Pega a altura do header fixo
+                const headerOffset = header.offsetHeight; 
                 
                 if (targetElement) {
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
@@ -1476,7 +1624,6 @@
                         behavior: 'smooth'
                     });
                     
-                    // Fecha o menu mobile se estiver aberto
                     if (mainNav.classList.contains('active')) {
                         mainNav.classList.remove('active');
                     }
@@ -1488,7 +1635,7 @@
         const backToTopBtn = document.getElementById('backToTopBtn');
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { // Mostra o botão após rolar 300px
+            if (window.scrollY > 300) { 
                 backToTopBtn.classList.add('active');
             } else {
                 backToTopBtn.classList.remove('active');
@@ -1506,26 +1653,23 @@
         // Animação de entrada para seções (Scroll Reveal)
         const fadeInSections = document.querySelectorAll('.fade-in');
 
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: '0px',
-            threshold: 0.1 // 10% da seção visível para ativar
-        };
-
         const sectionObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Para animar apenas uma vez
+                    observer.unobserve(entry.target); 
                 }
             });
-        }, observerOptions);
+        }, {
+            root: null, 
+            rootMargin: '0px',
+            threshold: 0.1 
+        });
 
         fadeInSections.forEach(section => {
             sectionObserver.observe(section);
         });
 
-        // Função para garantir que a animação do HERO aconteça ao carregar a página
         window.addEventListener('load', () => {
             document.querySelector('.hero-content').style.opacity = '1';
         });

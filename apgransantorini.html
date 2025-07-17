@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Santorini Residencial - FN Empreendimentos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/logofnsf.png" type="image/x-icon">
+    <style>
+        /* Variáveis CSS (Copiadas do seu index.html para consistência) */
+        :root {
+            --primary: #e74c3c;
+            --primary-dark: #c0392b;
+            --secondary: #2c3e50;
+            --secondary-light: #34495e;
+            --light: #f8f9fa;
+            --lighter: #f4f7f6;
+            --dark: #333;
+            --gray: #7f8c8d;
+            --white: #fff;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--lighter);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--secondary);
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), #f39c12);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--primary-dark), #e67e22);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn i {
+            font-size: 1.1em;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .logo span {
+            color: var(--primary);
+            font-weight: 700;
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: var(--secondary-light);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+            transform: translateX(-3px);
+        }
+
+        /* Hero Section */
+        .property-hero {
+            background-color: var(--white);
+            padding: 30px 0 40px;
+            position: relative;
+        }
+
+        .property-title-block {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .property-title-block h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .property-title-block .property-location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        .property-title-block .property-location i {
+            color: var(--primary);
+        }
+
+        /* Image Gallery */
+        .image-gallery-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background-color: #f1f1f1;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .main-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 12px;
+        }
+
+        .thumbnail-item {
+            width: 100%;
+            height: 90px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .thumbnail-item:hover::before,
+        .thumbnail-item.active::before {
+            opacity: 1;
+        }
+
+        .thumbnail-item.active,
+        .thumbnail-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+        }
+
+        /* Main Content Layout */
+        .main-property-content {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding: 50px 0;
+        }
+
+        .property-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+        }
+
+        .property-details-col {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .property-sidebar-col {
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Content Blocks */
+        .content-block {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .content-block:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .content-block h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        /* Property Description */
+        .property-description {
+            padding: 30px;
+        }
+
+        .property-description h3 {
+            text-align: center;
+        }
+
+        .property-description p {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .property-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Video Tour */
+        .video-tour {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .video-tour h3 {
+            margin-bottom: 25px;
+        }
+
+        .video-tour iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .video-tour p {
+            margin-top: 20px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Sidebar Blocks */
+        .sidebar-block {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            padding: 25px;
+            transition: var(--transition);
+        }
+
+        .sidebar-block:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .sidebar-block h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Price Block */
+        .price-actions-block {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .price-actions-block .property-price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn.whatsapp {
+            background: #25D366;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn.whatsapp:hover {
+            background: #128C7E;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Details Grid */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--dark);
+            padding: 10px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+
+        .detail-item i {
+            color: var(--primary);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Location Map */
+        .location-map {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .location-map h3 {
+            margin-bottom: 25px;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .location-map p {
+            margin-top: 20px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Agent Info */
+        .agent-info {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .agent-info h3 {
+            margin-bottom: 30px;
+        }
+
+        .agent-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .agent-avatar {
+            flex-shrink: 0;
+        }
+
+        .agent-avatar img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2);
+            transition: var(--transition);
+        }
+
+        .agent-avatar:hover img {
+            transform: scale(1.05);
+        }
+
+        .agent-details {
+            text-align: left;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .agent-details h4 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .agent-details p {
+            font-size: 1.05rem;
+            color: var(--gray);
+            margin-bottom: 6px;
+        }
+
+        .agent-contact-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .agent-contact-buttons .btn {
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            min-width: 140px;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-form-section h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-light);
+            font-size: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            background-color: var(--light);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+            background-color: var(--white);
+        }
+
+        .contact-form textarea {
+            height: 180px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 14px;
+            font-size: 1.05rem;
+        }
+
+        /* Similar Properties */
+        .similar-properties-section {
+            background-color: var(--light);
+            padding: 70px 0;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .property-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .property-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .property-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .property-info p {
+            margin-bottom: 8px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .property-info .price {
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 15px 0;
+        }
+
+        .property-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .detail {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-light);
+        }
+
+        .detail i {
+            margin-right: 6px;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--white);
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links li {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.9);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .property-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .property-sidebar-col {
+                position: static;
+                grid-row: 1;
+            }
+            
+            .main-image {
+                height: 450px;
+            }
+            
+            .property-title-block h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .property-hero {
+                padding: 20px 0 30px;
+            }
+            
+            .property-title-block h1 {
+                font-size: 2.2rem;
+            }
+            
+            .property-title-block .property-location {
+                font-size: 1.1rem;
+            }
+            
+            .main-image {
+                height: 350px;
+            }
+            
+            .thumbnail-item {
+                height: 80px;
+            }
+            
+            .property-description,
+            .video-tour,
+            .location-map,
+            .agent-info,
+            .contact-form-section,
+            .sidebar-block {
+                padding: 25px;
+            }
+            
+            .content-block h3,
+            .agent-info h3,
+            .contact-form-section h3,
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .video-tour iframe {
+                height: 350px;
+            }
+            
+            .location-map iframe {
+                height: 350px;
+            }
+            
+            .agent-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .agent-details {
+                text-align: center;
+            }
+            
+            .agent-contact-buttons {
+                justify-content: center;
+            }
+            
+            .price-actions-block .property-price {
+                font-size: 2.2rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: column-reverse;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .property-title-block h1 {
+                font-size: 1.8rem;
+            }
+            
+            .main-image {
+                height: 280px;
+            }
+            
+            .thumbnail-item {
+                height: 70px;
+            }
+            
+            .property-content-wrapper {
+                gap: 30px;
+            }
+            
+            .content-block h3,
+            .agent-info h3,
+            .contact-form-section h3,
+            .section-title h2 {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+            
+            .video-tour iframe {
+                height: 250px;
+            }
+            
+            .location-map iframe {
+                height: 250px;
+            }
+            
+            .agent-avatar img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .agent-details h4 {
+                font-size: 1.5rem;
+            }
+            
+            .agent-contact-buttons {
+                flex-direction: column;
+            }
+            
+            .agent-contact-buttons .btn {
+                width: 100%;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-section {
+                padding: 25px 20px;
+            }
+            
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .property-title-block h1 {
+                font-size: 1.6rem;
+            }
+            
+            .main-image {
+                height: 220px;
+            }
+            
+            .thumbnail-item {
+                height: 60px;
+            }
+            
+            .video-tour iframe {
+                height: 200px;
+            }
+            
+            .location-map iframe {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar aos Imóveis</a>
+            <div class="logo">
+                <img src="assets/logofnsf.png" alt="FN Empreendimentos">
+                <h1>FN <span>Empreendimentos</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="property-hero">
+        <div class="container">
+            <div class="property-title-block">
+                <h1>Grand Santorini Residencial</h1>
+                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Centro, Pinhais - PR</p>
+            </div>
+
+            <div class="image-gallery-section">
+                <div class="main-image">
+                    <img id="mainPropertyImage" src="assets/grandsant/frentebaixa.PNG" alt="Grand Santorini Fachada 1">
+                </div>
+                <div class="thumbnail-gallery">
+                    <img class="thumbnail-item active" src="assets/grandsant/frentebaixa.PNG" alt="Grand Santorini Fachada 1 Thumbnail">
+                    <img class="thumbnail-item" src="assets/grandsant/frentelonge.PNG" alt="Grand Santorini Fachada 2 Thumbnail">
+                    <img class="thumbnail-item" src="assets/grandsant/quarto1.PNG" alt="Grand Santorini Quarto 1 Thumbnail">
+                    <img class="thumbnail-item" src="assets/grandsant/quarto2.PNG" alt="Grand Santorini Quarto 2 Thumbnail">
+                    <img class="thumbnail-item" src="assets/grandsant/quarto2.2.PNG" alt="Grand Santorini Quarto 2.2 Thumbnail">
+                    <img class="thumbnail-item" src="assets/grandsant/sala1.PNG" alt="Grand Santorini Sala 1 Thumbnail">
+                    <img class="thumbnail-item" src="assets/grandsant/sala2.PNG" alt="Grand Santorini Sala 2 Thumbnail">
+                    <img class="thumbnail-item" src="assets/grandsant/sala2.2.PNG" alt="Grand Santorini Sala 2.2 Thumbnail">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-property-content">
+        <div class="container">
+            <div class="property-content-wrapper">
+                <div class="property-details-col">
+                    <section class="content-block property-description">
+                        <h3>Descrição do Empreendimento</h3>
+                        <p>O <strong>Grand Santorini Residencial</strong> é um lançamento da Arteforte Empreendimentos Imobiliários LTDA, com entrega prevista para Outubro de 2025. Localizado na Rua Quinze de Outubro, 689, no Centro de Pinhais - PR, este empreendimento oferece a comodidade da cidade com fácil acesso a Curitiba.</p>
+                        <p>Os apartamentos do tipo padrão possuem uma área privativa de $88,32m², com uma distribuição inteligente que inclui sala de estar/jantar, cozinha/serviço, dois quartos, uma suíte e duas sacadas, além de dois banheiros (BWC).</p>
+                        <p>O condomínio conta com infraestrutura completa para o seu conforto e lazer, incluindo elevador, playground e uma área de leitura. Além disso, todos os apartamentos possuem medidores individuais de água, energia e gás, promovendo a economia e o controle de consumo.</p>
+                        <p>As vagas de garagem são variadas, com opções duplas, simples, cobertas e descobertas, atendendo às diversas necessidades dos moradores.</p>
+                        <p>Também estão disponíveis unidades de cobertura, com área privativa de $163,92m², oferecendo ainda mais espaço e exclusividade, com áreas como espaço gourmet e terraço descoberto.</p>
+                    </section>
+
+                    <section class="content-block video-tour">
+                        <h3>Tour Virtual / Vídeo do Empreendimento</h3>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p>Assista ao vídeo para ter uma visão completa deste incrível empreendimento.</p>
+                    </section>
+                </div>
+
+                <aside class="property-sidebar-col">
+                    <div class="sidebar-block price-actions-block">
+                        <div class="property-price">Preço sob Consulta</div>
+                        <div class="quick-actions">
+                            <a href="https://wa.me/5541991320505?text=Olá! Tenho interesse no Grand Santorini Residencial. Poderia me dar mais informações sobre valores?" target="_blank" class="btn whatsapp"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-block">
+                        <h3>Características Principais do Apartamento Tipo</h3>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <i class="fas fa-bed"></i> <span>2 Quartos + 1 Suíte</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-bath"></i> <span>2 Banheiros</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-car"></i> <span>Vagas de Garagem</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-ruler-combined"></i> <span>$88,32m² de Área Privativa</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-building"></i> <span>Entrega Out/2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-compass"></i> <span>2 Sacadas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-block">
+                        <h3>Detalhes do Condomínio</h3>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <i class="fas fa-city"></i> <span>Construtora Arteforte</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-elevator"></i> <span>Elevador</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-child"></i> <span>Playground</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-book"></i> <span>Área de Leitura</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-solar-panel"></i> <span>Medidores Individuais</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-car-alt"></i> <span>Vagas Duplas</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <section class="content-block location-map">
+                <h3>Localização do Empreendimento</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.138407028169!2d-49.1916304!3d-25.462705299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4a2d1d0c41b%3A0xc3f8e5b6b1b1b1b1!2sRua%20Quinze%20de%20Outubro%2C%20689%20-%20Centro%2C%20Pinhais%20-%20PR%2C%2083323-110!5e0!3m2!1spt-BR!2sbr!4v1721151604533!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p>O Grand Santorini está situado na Rua Quinze de Outubro, 689, no coração de Pinhais - PR. Uma localização estratégica que combina tranquilidade e acesso facilitado a serviços essenciais e a Curitiba.</p>
+            </section>
+
+            <section class="content-block agent-info">
+                <h3>Seu Agente Imobiliário</h3>
+                <div class="agent-card">
+                    <div class="agent-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="Foto do Agente">
+                    </div>
+                    <div class="agent-details">
+                        <h4>José Ferreira</h4>
+                        <p>Especialista em Lançamentos e Imóveis em Pinhais</p>
+                        <p>CRECI: 12345-F</p>
+                        <div class="agent-contact-buttons">
+                            <a href="https://wa.me/5541991320505?text=Olá José! Tenho interesse no Grand Santorini Residencial. Poderíamos conversar?" target="_blank" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="mailto:josefds@remax.com.br" class="btn"><i class="fas fa-envelope"></i> Email</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block contact-form-section">
+                <h3>Entre em Contato Sobre o Grand Santorini</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="contactName">Seu Nome</label>
+                        <input type="text" id="contactName" name="contactName" required placeholder="Nome Completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Seu Email</label>
+                        <input type="email" id="contactEmail" name="contactEmail" required placeholder="seu.email@exemplo.com">
+                    </div>
+                <div class="form-group">
+                    <label for="contactPhone">Seu Telefone (opcional)</label>
+                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="(XX) XXXXX-XXXX">
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject">Assunto</label>
+                    <select id="contactSubject" name="contactSubject">
+                        <option value="informacoes-gerais">Informações Gerais do Empreendimento</option>
+                        <option value="agendar-visita">Agendar Visita ao Decorado/Local</option>
+                        <option value="tabela-precos">Tabela de Preços e Condições</option>
+                        <option value="outros">Outro Assunto</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Mensagem</label>
+                    <textarea id="contactMessage" name="contactMessage" required placeholder="Descreva sua necessidade ou dúvida sobre o Grand Santorini..."></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="similar-properties-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Imóveis Similares na Região</h2>
+            </div>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1576941089067-2fd3f7375a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Moderno">
+                        <div class="property-info">
+                            <h3>Apartamento Moderno</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Central, Pinhais</p>
+                            <p class="price">R$ 550.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 65m²</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="property-card">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1564013799907-f0f5d4608c0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa em Condomínio">
+                        <div class="property-info">
+                            <h3>Casa em Condomínio</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Jd. Amélia, Pinhais</p>
+                            <p class="price">R$ 780.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 3 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 2 Banheiros</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 140m²</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="property-card">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1516450410668-800701140028?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Garden">
+                        <div class="property-info">
+                            <h3>Apartamento Garden</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Vargem Grande, Pinhais</p>
+                            <p class="price">R$ 620.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 2 Banheiros</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 100m²</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>FN Empreendimentos</h3>
+                    <p>Sua imobiliária de confiança, oferecendo as melhores soluções em compra, venda e locação de imóveis.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/seuperfil" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/seuperfil" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5541991320505" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Úteis</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">Início</a></li>
+                        <li><a href="index.html#about">Sobre Nós</a></li>
+                        <li><a href="index.html#properties">Imóveis</a></li>
+                        <li><a href="index.html#testimonials">Depoimentos</a></li>
+                        <li><a href="index.html#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Serviços</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Compra de Imóveis</a></li>
+                        <li><a href="#">Venda de Imóveis</a></li>
+                        <li><a href="#">Locação</a></li>
+                        <li><a href="#">Avaliação de Imóveis</a></li>
+                        <li><a href="#">Consultoria Imobiliária</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2019 FN Empreendimentos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidade da Galeria de Imagens
+        const mainPropertyImage = document.getElementById('mainPropertyImage');
+        const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+
+        thumbnailItems.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                thumbnailItems.forEach(item => item.classList.remove('active'));
+                thumbnail.classList.add('active');
+                mainPropertyImage.src = thumbnail.src;
+            });
+        });
+
+        // Formulário de Contato Direto do Imóvel
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.');
+            contactForm.reset();
+        });
+
+        // Smooth Scrolling para links âncora (como os botões de contato do agente ou "Tenho Interesse")
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const headerOffset = document.querySelector('header').offsetHeight; // Pega a altura do header fixo
+                
+                if (targetElement) {
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset - 20; // Ajusta um pouco para não ficar colado
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
