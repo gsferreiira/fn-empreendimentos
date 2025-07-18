@@ -39,6 +39,8 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            margin: 0; /* Explicitly set to 0 */
+            padding: 0; /* Explicitly set to 0 */
         }
 
         h1, h2, h3, h4 {
@@ -224,6 +226,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-md);
             background-color: #f1f1f1;
+            position: relative; 
         }
 
         .main-image img {
@@ -237,14 +240,60 @@
             transform: scale(1.02);
         }
 
+        /* Botões de Carrossel da Imagem Principal (Mantidos no CSS caso queira adicionar novamente) */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            padding: 15px 10px;
+            cursor: pointer;
+            font-size: 2rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+            border-radius: 5px; 
+            display: none; /* ESCONDIDO: Para ocultar os botões da imagem principal */
+        }
+
+        .carousel-button:hover {
+            opacity: 1;
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        /* Galeria de Miniaturas (Carrossel) */
+        .thumbnail-carousel-container {
+            position: relative; 
+            width: 100%;
+        }
+
         .thumbnail-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            display: flex; 
+            overflow-x: auto; 
+            scroll-behavior: smooth; 
             gap: 12px;
+            padding: 0 40px 10px; /* Adiciona padding para os botões e barra de rolagem */
+            -webkit-overflow-scrolling: touch; 
+            scrollbar-width: none; 
+        }
+
+        /* Esconde a barra de rolagem para Webkit (Chrome, Safari) */
+        .thumbnail-gallery::-webkit-scrollbar {
+            display: none;
         }
 
         .thumbnail-item {
-            width: 100%;
+            flex-shrink: 0; 
+            width: 100px; 
             height: 90px;
             border-radius: 8px;
             overflow: hidden;
@@ -282,6 +331,37 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
         }
+
+        /* Botões de navegação do Carrossel de Miniaturas */
+        .thumbnail-nav-button {
+            position: absolute;
+            top: 50%; 
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6); /* Cor mais escura para contraste */
+            color: var(--white);
+            border: none;
+            padding: 8px 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+            z-index: 10;
+            border-radius: 3px;
+        }
+
+        .thumbnail-nav-button:hover {
+            opacity: 1;
+            background-color: var(--primary); /* Destaca ao passar o mouse */
+        }
+
+        .thumbnail-nav-button.left {
+            left: 0; 
+        }
+
+        .thumbnail-nav-button.right {
+            right: 0; 
+        }
+
 
         /* Main Content Layout */
         .main-property-content {
@@ -385,7 +465,7 @@
         }
 
         .sidebar-block:hover {
-            box-shadow: var(--shadow-md);
+            box_shadow: var(--shadow-md);
         }
 
         .sidebar-block h3 {
@@ -543,65 +623,6 @@
             padding: 10px 20px;
             font-size: 0.95rem;
             min-width: 140px;
-        }
-
-        /* Contact Form */
-        .contact-form-section {
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .contact-form-section h3 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--secondary-light);
-            font-size: 1rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-            background-color: var(--light);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus,
-        .contact-form select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
-            background-color: var(--white);
-        }
-
-        .contact-form textarea {
-            height: 180px;
-            resize: vertical;
-        }
-
-        .contact-form .btn {
-            width: 100%;
-            margin-top: 10px;
-            padding: 14px;
-            font-size: 1.05rem;
         }
 
         /* Similar Properties */
@@ -780,6 +801,60 @@
             opacity: 0.8;
         }
 
+        /* Fixed Buttons - Replaced .fab-container and .fab-button */
+        .fixed-buttons {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1001; /* Higher than header's z-index */
+        }
+
+        .fixed-btn {
+            background: linear-gradient(135deg, var(--primary), #f39c12);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none; /* For the WhatsApp link */
+        }
+
+        .fixed-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--primary-dark), #e67e22);
+        }
+
+        .fixed-btn.whatsapp-fixed {
+            background: #25D366;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .fixed-btn.whatsapp-fixed:hover {
+            background: #128C7E;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .fixed-btn.back-to-top {
+            display: none; /* Hidden by default, shown with JS */
+            background-color: var(--secondary);
+        }
+
+        .fixed-btn.back-to-top:hover {
+            background-color: var(--secondary-light);
+        }
+
+
         /* Responsividade */
         @media (max-width: 1024px) {
             .property-content-wrapper {
@@ -820,20 +895,19 @@
             
             .thumbnail-item {
                 height: 80px;
+                width: 90px; /* Ajuste para caber mais na tela */
             }
             
             .property-description,
             .video-tour,
             .location-map,
             .agent-info,
-            .contact-form-section,
             .sidebar-block {
                 padding: 25px;
             }
             
             .content-block h3,
             .agent-info h3,
-            .contact-form-section h3,
             .section-title h2 {
                 font-size: 1.8rem;
             }
@@ -866,6 +940,24 @@
             .details-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .carousel-button {
+                padding: 10px 8px; /* Ajuste para telas menores */
+                font-size: 1.5rem;
+            }
+            .thumbnail-nav-button {
+                /* Exibido por padrão, pode ser oculto com media query se a rolagem nativa for suficiente */
+            }
+            .fixed-buttons {
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+
+            .fixed-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -890,6 +982,7 @@
             
             .thumbnail-item {
                 height: 70px;
+                width: 80px; /* Ajuste para caber mais na tela */
             }
             
             .property-content-wrapper {
@@ -898,7 +991,6 @@
             
             .content-block h3,
             .agent-info h3,
-            .contact-form-section h3,
             .section-title h2 {
                 font-size: 1.6rem;
                 margin-bottom: 15px;
@@ -933,10 +1025,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .contact-form-section {
-                padding: 25px 20px;
-            }
-            
             .properties-grid {
                 grid-template-columns: 1fr;
             }
@@ -953,6 +1041,7 @@
             
             .thumbnail-item {
                 height: 60px;
+                width: 70px; /* Ajuste para caber mais na tela */
             }
             
             .video-tour iframe {
@@ -987,16 +1076,20 @@
                 <div class="main-image">
                     <img id="mainPropertyImage" src="assets/grandsant/frentebaixa.PNG" alt="Grand Santorini Fachada 1">
                 </div>
-                <div class="thumbnail-gallery">
-                    <img class="thumbnail-item active" src="assets/grandsant/frentebaixa.PNG" alt="Grand Santorini Fachada 1 Thumbnail">
-                    <img class="thumbnail-item" src="assets/grandsant/frentelonge.PNG" alt="Grand Santorini Fachada 2 Thumbnail">
-                    <img class="thumbnail-item" src="assets/grandsant/quarto1.PNG" alt="Grand Santorini Quarto 1 Thumbnail">
-                    <img class="thumbnail-item" src="assets/grandsant/quarto2.PNG" alt="Grand Santorini Quarto 2 Thumbnail">
-                    <img class="thumbnail-item" src="assets/grandsant/quarto2.2.PNG" alt="Grand Santorini Quarto 2.2 Thumbnail">
-                    <img class="thumbnail-item" src="assets/grandsant/sala1.PNG" alt="Grand Santorini Sala 1 Thumbnail">
-                    <img class="thumbnail-item" src="assets/grandsant/sala2.PNG" alt="Grand Santorini Sala 2 Thumbnail">
-                    <img class="thumbnail-item" src="assets/grandsant/sala2.2.PNG" alt="Grand Santorini Sala 2.2 Thumbnail">
+                <div class="thumbnail-carousel-container">
+                    <button class="thumbnail-nav-button left" aria-label="Miniaturas Anteriores"><i class="fas fa-chevron-left"></i></button>
+                    <div class="thumbnail-gallery" id="thumbnailGallery">
+                        <img class="thumbnail-item active" src="assets/grandsant/frentebaixa.PNG" alt="Grand Santorini Fachada 1 Thumbnail">
+                        <img class="thumbnail-item" src="assets/grandsant/frentelonge.PNG" alt="Grand Santorini Fachada 2 Thumbnail">
+                        <img class="thumbnail-item" src="assets/grandsant/quarto1.PNG" alt="Grand Santorini Quarto 1 Thumbnail">
+                        <img class="thumbnail-item" src="assets/grandsant/quarto2.PNG" alt="Grand Santorini Quarto 2 Thumbnail">
+                        <img class="thumbnail-item" src="assets/grandsant/quarto2.2.PNG" alt="Grand Santorini Quarto 2.2 Thumbnail">
+                        <img class="thumbnail-item" src="assets/grandsant/sala1.PNG" alt="Grand Santorini Sala 1 Thumbnail">
+                        <img class="thumbnail-item" src="assets/grandsant/sala2.PNG" alt="Grand Santorini Sala 2 Thumbnail">
+                        <img class="thumbnail-item" src="assets/grandsant/sala2.2.PNG" alt="Grand Santorini Sala 2.2 Thumbnail">
                     </div>
+                    <button class="thumbnail-nav-button right" aria-label="Próximas Miniaturas"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
     </section>
@@ -1103,39 +1196,8 @@
                     </div>
                 </div>
             </section>
-
-            <section class="content-block contact-form-section">
-                <h3>Entre em Contato Sobre o Grand Santorini</h3>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="contactName">Seu Nome</label>
-                        <input type="text" id="contactName" name="contactName" required placeholder="Nome Completo">
-                    </div>
-                    <div class="form-group">
-                        <label for="contactEmail">Seu Email</label>
-                        <input type="email" id="contactEmail" name="contactEmail" required placeholder="seu.email@exemplo.com">
-                    </div>
-                <div class="form-group">
-                    <label for="contactPhone">Seu Telefone (opcional)</label>
-                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="(XX) XXXXX-XXXX">
-                </div>
-                <div class="form-group">
-                    <label for="contactSubject">Assunto</label>
-                    <select id="contactSubject" name="contactSubject">
-                        <option value="informacoes-gerais">Informações Gerais do Empreendimento</option>
-                        <option value="agendar-visita">Agendar Visita ao Decorado/Local</option>
-                        <option value="tabela-precos">Tabela de Preços e Condições</option>
-                        <option value="outros">Outro Assunto</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="contactMessage">Mensagem</label>
-                    <textarea id="contactMessage" name="contactMessage" required placeholder="Descreva sua necessidade ou dúvida sobre o Grand Santorini..."></textarea>
-                </div>
-                <button type="submit" class="btn">Enviar Mensagem</button>
-            </form>
         </div>
-    </section>
+    </main>
 
     <section class="similar-properties-section">
         <div class="container">
@@ -1231,26 +1293,76 @@
         </div>
     </footer>
 
-    <script>
-        // Funcionalidade da Galeria de Imagens
-        const mainPropertyImage = document.getElementById('mainPropertyImage');
-        const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+    <div class="fixed-buttons">
+        <a href="https://wa.me/5541991320505?text=Olá! Gostaria de conversar sobre um imóvel." target="_blank" class="fixed-btn whatsapp-fixed" aria-label="WhatsApp Fixo">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button id="backToTopBtn" class="fixed-btn back-to-top" aria-label="Voltar ao Topo">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
 
-        thumbnailItems.forEach(thumbnail => {
-            thumbnail.addEventListener('click', () => {
+    <script>
+        const mainPropertyImage = document.getElementById('mainPropertyImage');
+        const thumbnailGallery = document.getElementById('thumbnailGallery');
+        const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+        const thumbPrevButton = document.querySelector('.thumbnail-nav-button.left');
+        const thumbNextButton = document.querySelector('.thumbnail-nav-button.right');
+        
+        let currentIndex = 0; // Índice da imagem principal atual
+
+        function updateMainImage(index) {
+            if (index >= 0 && index < thumbnailItems.length) {
+                currentIndex = index;
                 thumbnailItems.forEach(item => item.classList.remove('active'));
-                thumbnail.classList.add('active');
-                mainPropertyImage.src = thumbnail.src;
+                thumbnailItems[currentIndex].classList.add('active');
+                mainPropertyImage.src = thumbnailItems[currentIndex].src;
+
+                // Rola a galeria de miniaturas para manter a miniatura ativa visível
+                const activeThumbnail = thumbnailItems[currentIndex];
+                const galleryRect = thumbnailGallery.getBoundingClientRect();
+                const thumbRect = activeThumbnail.getBoundingClientRect();
+
+                // Calcula a posição de rolagem necessária
+                if (thumbRect.left < galleryRect.left) {
+                    thumbnailGallery.scrollLeft -= (galleryRect.left - thumbRect.left);
+                } else if (thumbRect.right > galleryRect.right) {
+                    thumbnailGallery.scrollLeft += (thumbRect.right - galleryRect.right);
+                }
+            }
+        }
+
+        // Lógica para os cliques nas miniaturas
+        thumbnailItems.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                updateMainImage(index);
             });
         });
 
-        // Formulário de Contato Direto do Imóvel
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.');
-            contactForm.reset();
+        // Lógica para os botões de navegação do carrossel de miniaturas
+        thumbPrevButton.addEventListener('click', () => {
+            // Rola uma quantidade baseada na largura de algumas miniaturas
+            const scrollAmount = thumbnailItems[0].offsetWidth * 3; // Rola 3 miniaturas por vez, ajuste se necessário
+            thumbnailGallery.scrollBy({
+                left: -scrollAmount, 
+                behavior: 'smooth'
+            });
         });
+
+        thumbNextButton.addEventListener('click', () => {
+            // Rola uma quantidade baseada na largura de algumas miniaturas
+            const scrollAmount = thumbnailItems[0].offsetWidth * 3; // Rola 3 miniaturas por vez, ajuste se necessário
+            thumbnailGallery.scrollBy({
+                left: scrollAmount, 
+                behavior: 'smooth'
+            });
+        });
+
+
+        // Define a primeira imagem como ativa inicialmente
+        if (thumbnailItems.length > 0) {
+            updateMainImage(0);
+        }
 
         // Smooth Scrolling para links âncora (como os botões de contato do agente ou "Tenho Interesse")
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1269,6 +1381,24 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>

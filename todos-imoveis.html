@@ -3,49 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FN Empreendimentos - Sua Imobiliária de Confiança</title>
+    <title>Todos os Imóveis - FN Empreendimentos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="assets/logofnsf.png" type="image/x-icon">
     <style>
-        /* Reset e Estilos Globais */
+        /* Variáveis CSS (Copiadas do seu index.html para consistência) */
         :root {
-            /* Cores */
-            --primary: #e74c3c; /* Vermelho vibrante */
-            --primary-dark: #c0392b; /* Vermelho mais escuro para hover */
-            --secondary: #2c3e50; /* Azul escuro quase preto, para títulos */
-            --secondary-light: #34495e; /* Um pouco mais claro */
-            --light: #f8f9fa; /* Fundo suave para blocos */
-            --lighter: #f4f7f6; /* Fundo geral da página */
-            --dark: #333; /* Texto geral */
-            --gray: #7f8c8d; /* Texto secundário */
+            --primary: #e74c3c;
+            --primary-dark: #c0392b;
+            --secondary: #2c3e50;
+            --secondary-light: #34495e;
+            --light: #f8f9fa;
+            --lighter: #f4f7f6;
+            --dark: #333;
+            --gray: #7f8c8d;
             --white: #fff;
 
-            /* Sombras */
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08); /* Sombra mais sutil */
-            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra média */
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra pronunciada */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
 
-            /* Transições */
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição suave e moderna */
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-            /* Bordas */
-            --border-radius: 12px; /* Padrão para elementos */
-            --border-radius-lg: 18px; /* Maior para elementos como galeria/cards principais */
+            --border-radius: 12px;
+            --border-radius-lg: 18px;
 
-            /* Espaçamento (opcional, para consistência) */
             --spacing-xs: 10px;
             --spacing-sm: 20px;
             --spacing-md: 40px;
             --spacing-lg: 60px;
             --spacing-xl: 80px;
 
-            /* Tipografia (opcional, para consistência) */
-            --font-size-base: 1rem; /* ~16px */
+            --font-size-base: 1rem;
             --font-size-sm: 0.9rem;
             --font-size-md: 1.1rem;
             --font-size-lg: 1.25rem;
-            --font-size-h1: 3rem; /* Ajustado em seções específicas */
+            --font-size-h1: 3rem;
             --font-size-h2: 2.5rem;
         }
         
@@ -61,8 +55,8 @@
             color: var(--dark);
             line-height: 1.7; 
             overflow-x: hidden;
-            margin: 0; /* Explicitly set to 0 */
-            padding: 0; /* Explicitly set to 0 */
+            margin: 0;
+            padding: 0;
         }
 
         h1, h2, h3, h4 {
@@ -88,7 +82,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--spacing-sm); /* Usando variável */
+            padding: 0 var(--spacing-sm);
         }
 
         .section-title {
@@ -261,45 +255,30 @@
             color: var(--primary);
         }
 
-        /* Banner Principal */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/fundo.jpg'); 
+        /* Hero Section for Todos Imoveis */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/hero-all-properties.jpg'); /* New background image or use an existing one */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            height: 100vh;
-            min-height: 600px; 
+            min-height: 300px; /* Reduced height for sub-pages */
             display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
             color: var(--white);
-            padding-top: var(--spacing-xl);
+            padding-top: 100px; /* Space for fixed header */
             position: relative;
         }
 
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            animation: fadeInUp 1.5s ease forwards; 
-            opacity: 0; 
-        }
-
-        .hero h2 {
-            font-size: 4.5rem; 
+        .page-hero h1 {
+            font-size: 3.5rem; 
             margin-bottom: var(--spacing-sm);
             line-height: 1.1;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
             color: var(--white);
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: var(--spacing-md);
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
         /* Seções */
         section {
@@ -308,9 +287,69 @@
             overflow: hidden;
         }
 
-        /* Seção Imóveis */
-        .properties {
+        /* Seção Imóveis (Todos Imóveis) */
+        .properties-full-list {
             background-color: var(--lighter); 
+        }
+
+        .properties-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+            gap: var(--spacing-xs); 
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            background-color: var(--white);
+            border: 1px solid #e0e0e0; 
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            color: var(--dark);
+            box-shadow: var(--shadow-sm);
+            font-size: var(--font-size-base);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .location-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            gap: var(--spacing-sm); 
+            flex-wrap: wrap;
+        }
+
+        .location-select {
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            background-color: var(--white);
+            cursor: pointer;
+            min-width: 250px; 
+            transition: var(--transition);
+            font-size: var(--font-size-base);
+            color: var(--dark);
+            appearance: none; 
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 20px;
+        }
+
+        .location-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.25);
         }
 
         .properties-grid {
@@ -398,265 +437,6 @@
             font-size: 1.1em;
         }
         
-        .view-all-properties {
-            text-align: center;
-            margin-top: var(--spacing-lg); /* Space above the button */
-        }
-
-        /* Seção Sobre */
-        .about {
-            background-color: var(--white);
-        }
-
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: var(--spacing-lg); 
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 380px; 
-        }
-
-        .about-text h3 {
-            font-size: 2.5rem; 
-            margin-bottom: var(--spacing-sm);
-            color: var(--secondary);
-        }
-
-        .about-text p {
-            margin-bottom: var(--spacing-xs);
-            color: var(--gray);
-            font-size: var(--font-size-md);
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 380px; 
-            border-radius: var(--border-radius-lg); 
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-image img {
-            transition: var(--transition);
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05); 
-        }
-
-        /* Seção Depoimentos */
-        .testimonials {
-            background-color: var(--lighter);
-        }
-
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
-        }
-
-        .testimonial-card {
-            background-color: var(--white);
-            padding: var(--spacing-md);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            transition: var(--transition);
-            border-left: 6px solid var(--primary); 
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .testimonial-card::before {
-            content: '\201C'; 
-            font-family: serif;
-            font-size: 7rem; 
-            color: var(--primary);
-            opacity: 0.1;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            line-height: 1;
-            z-index: 0;
-        }
-
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: var(--spacing-sm);
-            color: var(--dark);
-            line-height: 1.8;
-            font-size: var(--font-size-md);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            margin-top: var(--spacing-sm);
-        }
-
-        .testimonial-author img {
-            width: 75px; 
-            height: 75px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: var(--spacing-xs);
-            border: 4px solid var(--primary); 
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
-        }
-
-        .author-info h4 {
-            margin-bottom: 5px;
-            font-size: var(--font-size-lg);
-            color: var(--secondary);
-        }
-
-        .author-info p {
-            color: var(--gray);
-            font-size: var(--font-size-base);
-        }
-
-        /* Seção Parceiros */
-        .partners {
-            background-color: var(--white);
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-            gap: var(--spacing-lg);
-            align-items: center;
-            justify-items: center;
-        }
-
-        .partner-logo {
-            max-width: 220px; 
-            height: auto;
-            filter: grayscale(90%); 
-            opacity: 0.7;
-            transition: var(--transition);
-            padding: var(--spacing-xs);
-        }
-
-        .partner-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1); 
-        }
-
-        /* Seção Contato */
-        .contact {
-            background-color: var(--lighter);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: var(--spacing-lg); 
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-        }
-
-        .contact-info h3 {
-            font-size: 2.2rem;
-            margin-bottom: var(--spacing-sm);
-            color: var(--secondary);
-        }
-
-        .info-item {
-            display: flex;
-            gap: var(--spacing-sm);
-            align-items: flex-start; 
-        }
-
-        .info-item i {
-            font-size: 1.6rem; 
-            color: var(--primary);
-            margin-top: 5px;
-            width: 35px; 
-            text-align: center;
-        }
-
-        .info-content h4 {
-            margin-bottom: 8px;
-            font-size: var(--font-size-lg);
-            color: var(--secondary);
-        }
-
-        .info-content p {
-            color: var(--gray);
-            font-size: var(--font-size-md);
-            line-height: 1.6;
-        }
-
-        .contact-form {
-            background-color: var(--light); 
-            padding: 45px; 
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-md);
-        }
-
-        .contact-form h3 {
-            font-size: 2.2rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--secondary);
-        }
-
-        .form-group {
-            margin-bottom: var(--spacing-sm); 
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--secondary-light);
-            font-size: var(--font-size-md);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 16px 20px; 
-            border: 1px solid #ddd;
-            border-radius: 10px; 
-            font-size: var(--font-size-base);
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-            background-color: var(--white);
-            color: var(--dark);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.25);
-        }
-
-        .form-group textarea {
-            height: 200px; 
-            resize: vertical;
-        }
-
         /* Rodapé */
         footer {
             background-color: var(--secondary); 
@@ -817,8 +597,8 @@
 
         /* Responsividade */
         @media (max-width: 1200px) {
-            .hero h2 {
-                font-size: 4rem;
+            .page-hero h1 {
+                font-size: 3rem;
             }
         }
 
@@ -834,34 +614,12 @@
                 font-size: var(--font-size-h2);
             }
 
-            .hero {
-                min-height: 550px;
-                padding: var(--spacing-xl) 0 var(--spacing-lg);
+            .page-hero {
+                min-height: 250px;
+                padding-top: 80px;
             }
-            .hero h2 {
-                font-size: 3.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.4rem;
-            }
-
-            /* About - Mobile first stack */
-            .about-content {
-                gap: var(--spacing-md);
-                flex-direction: column;
-            }
-            .about-image {
-                order: -1; 
-                min-width: unset;
-                width: 100%;
-            }
-            .about-text {
-                min-width: unset;
-                width: 100%;
-            }
-            .about-text h3 {
-                font-size: 2.2rem;
+            .page-hero h1 {
+                font-size: 2.8rem;
             }
 
             .properties-grid {
@@ -878,45 +636,14 @@
                 font-size: var(--font-size-lg);
             }
 
-            .testimonials-container {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: var(--spacing-md);
+            .filter-btn, .location-select {
+                width: 100%; 
+                max-width: 350px; 
             }
-            .testimonial-card {
-                padding: var(--spacing-md);
-            }
-            .testimonial-card::before {
-                font-size: 6rem;
-                left: 15px;
-            }
-            .testimonial-text {
-                font-size: var(--font-size-base);
-            }
-            .author-info h4 {
-                font-size: var(--font-size-lg);
+            .properties-filter, .location-filter {
+                gap: var(--spacing-xs);
             }
 
-            .partners-grid {
-                gap: var(--spacing-md);
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-            .partner-logo {
-                max-width: 180px;
-            }
-
-            .contact-container {
-                gap: var(--spacing-md);
-                grid-template-columns: 1fr;
-            }
-            .contact-info h3, .contact-form h3 {
-                font-size: 2rem;
-            }
-            .info-item i {
-                font-size: 1.5rem;
-            }
-            .contact-form {
-                padding: 35px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -965,34 +692,17 @@
                 width: auto; 
             }
 
-            .hero {
-                padding: 100px 0 70px;
+            .page-hero {
+                min-height: 200px;
+                padding-top: 70px;
             }
 
-            .hero h2 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
+            .page-hero h1 {
+                font-size: 2.2rem;
             }
 
             .properties-grid {
                 grid-template-columns: 1fr; /* Stack on small screens */
-            }
-
-            .contact-form {
-                padding: 30px;
-            }
-            .contact-form h3 {
-                font-size: 1.8rem;
-            }
-            .form-group input, .form-group textarea, .form-group select {
-                padding: 12px 15px;
-                font-size: var(--font-size-base);
-            }
-            .form-group textarea {
-                height: 150px;
             }
 
             /* Adjust WhatsApp button for smaller screens */
@@ -1006,17 +716,11 @@
         }
 
         @media (max-width: 576px) {
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: var(--font-size-md);
+            .page-hero h1 {
+                font-size: 1.8rem;
             }
             .section-title h2 {
                 font-size: 2.2rem;
-            }
-            .about-text h3 {
-                font-size: 2rem;
             }
             .property-card img {
                 height: 180px;
@@ -1027,50 +731,13 @@
             .property-info .price {
                 font-size: 1.3rem;
             }
-            .testimonial-card {
-                padding: 25px;
+            .filter-btn, .location-select {
+                max-width: unset; /* Allow to take full width again */
             }
-            .testimonial-card::before {
-                font-size: 5rem;
-                left: 10px;
-            }
-            .testimonial-text {
-                font-size: var(--font-size-sm);
-            }
-            .author-info h4 {
-                font-size: var(--font-size-base);
-            }
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .partner-logo {
-                max-width: 150px;
-            }
-            .contact-info h3, .contact-form h3 {
-                font-size: 1.6rem;
-            }
-            .info-item i {
-                font-size: 1.3rem;
-            }
-            .info-content h4 {
-                font-size: var(--font-size-base);
-            }
-            .info-content p {
-                font-size: var(--font-size-sm);
-            }
-            .footer-container {
-                gap: 30px;
-            }
-            .footer-col h3 {
-                font-size: 1.4rem;
-            }
-            .footer-col p, .footer-links a, .social-links a {
-                font-size: 0.9rem;
-            }
-            .social-links a {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+
+            .whatsapp-float {
+                bottom: 80px; /* Ensure it doesn't overlap back-to-top on small screens */
+                right: 15px;
             }
             .back-to-top {
                 width: 50px;
@@ -1082,21 +749,11 @@
         }
 
         @media (max-width: 400px) {
-            .hero h2 {
-                font-size: 2.1rem;
-            }
-            .hero p {
-                font-size: 0.95rem;
+            .page-hero h1 {
+                font-size: 1.6rem;
             }
             .section-title h2 {
                 font-size: 1.8rem;
-            }
-            .about-text h3 {
-                font-size: 1.6rem;
-            }
-            .whatsapp-float {
-                bottom: 80px; /* Ensure it doesn't overlap back-to-top on small screens */
-                right: 15px;
             }
         }
     </style>
@@ -1113,30 +770,55 @@
             </button>
             <nav id="mainNav">
                 <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#properties">Imóveis</a></li> <li><a href="#about">Sobre</a></li> <li><a href="#testimonials">Depoimentos</a></li>
-                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#properties" class="active">Imóveis</a></li> 
+                    <li><a href="index.html#about">Sobre</a></li> 
+                    <li><a href="index.html#testimonials">Depoimentos</a></li>
+                    <li><a href="index.html#contact">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h2>Encontre o imóvel dos seus sonhos</h2>
-            <p>A FN Empreendimentos oferece as melhores opções de imóveis para compra, venda e locação em Curitiba e região, com atendimento personalizado e seguro.</p>
-            <a href="#properties" class="btn">Ver Imóveis <i class="fas fa-arrow-right"></i></a>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Todos os Imóveis Disponíveis</h1>
         </div>
     </section>
 
-    <section class="properties fade-in" id="properties"> 
+    <section class="properties-full-list fade-in" id="all-properties">
         <div class="container">
             <div class="section-title">
-                <h2>Imóveis em Destaque</h2>
+                <h2>Encontre o Imóvel Perfeito</h2>
             </div>
-            
+            <div class="properties-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="apartment">Apartamentos</button>
+                <button class="filter-btn" data-filter="house">Casas</button>
+                <button class="filter-btn" data-filter="commercial">Comerciais</button>
+                <button class="filter-btn" data-filter="rent">Para Alugar</button>
+            </div>
+            <div class="location-filter">
+                <select id="cityFilter" class="location-select">
+                    <option value="all">Todas as Cidades</option>
+                    <option value="curitiba">Curitiba</option>
+                    <option value="saojose">São José dos Pinhais</option>
+                    <option value="tijucas">Tijucas do Sul</option>
+                    <option value="pinhais">Pinhais</option> 
+                </select>
+                <select id="neighborhoodFilter" class="location-select">
+                    <option value="all">Todos os Bairros</option>
+                    <option value="capaoda-imbuia">Capão da Imbuia</option>
+                    <option value="bairro-nobre">Bairro Nobre</option>
+                    <option value="bairro-residencial">Bairro Residencial</option>
+                    <option value="centro">Centro</option>
+                    <option value="bairro-central">Bairro Central</option>
+                    <option value="bairro-jardim">Bairro Jardim</option>
+                    <option value="bairro-novo">Bairro Novo</option>
+                </select>
+            </div>
             <div class="properties-grid">
-                 <div class="property-card" data-category="house" data-city="curitiba" data-neighborhood="capaoda-imbuia">
+                <div class="property-card" data-category="house" data-city="curitiba" data-neighborhood="capaoda-imbuia">
                     <a href="residencialmorona.html" class="property-link"> 
                         <img src="assets/resmorona/frente.jpg" alt="Residencial Morona - Fachada">
                         <div class="property-info">
@@ -1181,153 +863,107 @@
                         </div>
                     </a>
                 </div>
-            </div>
-
-            <div class="view-all-properties">
-                <a href="todos-imoveis.html" class="btn">Ver Todos os Imóveis <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="about fade-in" id="about"> 
-        <div class="container">
-            <div class="section-title">
-                <h2>Sobre Nós</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Descubra a FN Empreendimentos</h3>
-                        <p>Com mais de 6 anos de atuação no mercado, a FN Empreendimentos se destaca por conectar pessoas aos imóveis ideais, sempre com foco nas necessidades e sonhos de cada cliente.</p>
-                        <p>Nossa equipe de corretores é formada por profissionais experientes e comprometidos em oferecer um atendimento próximo, ágil e totalmente personalizado.</p>
-                        <p>Trabalhamos com transparência, ética e dedicação, garantindo segurança e tranquilidade em cada etapa da sua jornada imobiliária.</p>
-                    <a href="#contact" class="btn">Fale Conosco <i class="fas fa-phone-alt"></i></a>
-                </div>
-                <div class="about-image">
-                    <img src="assets/fnempresa.png" alt="Sobre a FN Empreendimentos">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials fade-in" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Depoimentos</h2>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">A FN Empreendimentos me ajudou a encontrar o apartamento perfeito para minha família. O atendimento foi excepcional e todo o processo foi muito transparente.</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente satisfeita">
-                            <div class="author-info">
-                                <h4>Ana Silva</h4>
-                                <p>Compradora de imóvel</p>
+                <div class="property-card" data-category="house" data-city="saojose" data-neighborhood="bairro-residencial">
+                    <a href="#" class="property-link">
+                        <img src="assets/casaveia.jpg" alt="Casa Familiar">
+                        <div class="property-info">
+                            <h3>Casa Familiar</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Residencial, São José dos Pinhais</p>
+                            <p class="price">R$ 850.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 4 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 3 Banheiros</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 220m²</div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">Consegui vender meu imóvel em tempo recorde com a assessoria da FN. Eles têm um network incrível e sabem exatamente como valorizar cada detalhe da propriedade.</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/96.jpg" alt="Cliente satisfeito">
-                            <div class="author-info">
-                                <h4>Carlos Mendes</h4>
-                                <p>Vendedor de imóvel</p>
+                <div class="property-card" data-category="commercial" data-city="curitiba" data-neighborhood="centro">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sala Comercial">
+                        <div class="property-info">
+                            <h3>Sala Comercial</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Centro, Curitiba</p>
+                            <p class="price">R$ 600.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-door-open"></i> 2 Salas</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 80m²</div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">Como investidor, confio na FN para identificar as melhores oportunidades no mercado imobiliário. Sua equipe técnica faz análises precisas e oferece ótimas opções.</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="Cliente satisfeito">
-                            <div class="author-info">
-                                <h4>Roberto Almeida</h4>
-                                <p>Investidor</p>
+                <div class="property-card" data-category="apartment rent" data-city="curitiba" data-neighborhood="bairro-central">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento para Alugar">
+                        <div class="property-info">
+                            <h3>Apartamento para Alugar</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Central, Curitiba</p>
+                            <p class="price">R$ 2.500/mês</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 70m²</div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="partners fade-in">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nossos Parceiros</h2>
-            </div>
-            <div class="partners-grid">
-                <img src="assets/climb.png" alt="Climb Imobiliária" class="partner-logo">
-                <img src="assets/logoescrita.png" alt="FN Construções" class="partner-logo">
-                <img src="assets/remax.png" alt="Banco Confiança" class="partner-logo">
-            </div>
-        </div>
-    </section>
-
-    <section class="contact fade-in" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Entre em Contato</h2>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Informações de Contato</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Endereço</h4>
-                            <p>Curitiba, Paraná - Brasil</p>
+                <div class="property-card" data-category="house" data-city="saojose" data-neighborhood="bairro-jardim">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa Moderna">
+                        <div class="property-info">
+                            <h3>Casa Moderna</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Jardim, São José dos Pinhais</p>
+                            <p class="price">R$ 1.500.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 5 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 4 Banheiros</div>
+                                <div class="detail"><i class="fas fa-ruler-combined"></i> 350m²</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Telefone</h4>
-                            <p><a href="tel:+5541991320505">(41) 99132-0505</a></p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p><a href="mailto:contato@fnempreendimentos.com.br">contato@fnempreendimentos.com.br</a></p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="contact-form">
-                    <h3>Envie uma Mensagem</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                <div class="property-card" data-category="apartment" data-city="tijucas" data-neighborhood="bairro-novo">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Compacto">
+                        <div class="property-info">
+                            <h3>Apartamento Compacto</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Novo, Tijucas do Sul</p>
+                            <p class="price">R$ 450.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 1 Quarto</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+                    </a>
+                </div>
+                <div class="property-card" data-category="house rent" data-city="curitiba" data-neighborhood="centro">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c759?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa para Alugar">
+                        <div class="property-info">
+                            <h3>Casa Charmosa para Alugar</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Centro, Curitiba</p>
+                            <p class="price">R$ 3.500/mês</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 3 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 2 Banheiros</div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(XX) XXXXX-XXXX">
+                    </a>
+                </div>
+                 <div class="property-card" data-category="apartment" data-city="saojose" data-neighborhood="bairro-residencial">
+                    <a href="#" class="property-link">
+                        <img src="https://images.unsplash.com/photo-1574362615436-08b5e90a501a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Confortável">
+                        <div class="property-info">
+                            <h3>Apartamento Confortável</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Bairro Residencial, São José dos Pinhais</p>
+                            <p class="price">R$ 720.000</p>
+                            <div class="property-details">
+                                <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
+                                <div class="detail"><i class="fas fa-bath"></i> 1 Banheiro</div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="subject">Assunto</label>
-                            <select id="subject" name="subject">
-                                <option value="buy">Comprar Imóvel</option>
-                                <option value="sell">Vender Imóvel</option>
-                                <option value="rent">Alugar Imóvel</option>
-                                <option value="other">Outro Assunto</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" name="message" required placeholder="Descreva sua necessidade..."></textarea>
-                        </div>
-                        <button type="submit" class="btn">Enviar Mensagem</button>
-                    </form>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1348,11 +984,10 @@
                 <div class="footer-col">
                     <h3>Links Úteis</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#properties">Imóveis</a></li>
-                        <li><a href="#about">Sobre Nós</a></li>
-                        <li><a href="#testimonials">Depoimentos</a></li>
-                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="index.html#home">Início</a></li>
+                        <li><a href="#all-properties">Imóveis</a></li> <li><a href="index.html#about">Sobre Nós</a></li>
+                        <li><a href="index.html#testimonials">Depoimentos</a></li>
+                        <li><a href="index.html#contact">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1395,30 +1030,17 @@
                 if (mainNav.classList.contains('active')) {
                     mainNav.classList.remove('active'); 
                 }
+                // For 'Imóveis' link on this page, ensure it remains active
+                if (link.getAttribute('href') === '#all-properties') {
+                    link.classList.add('active');
+                }
             });
         });
 
         // Sticky Header e Active Link no Menu
         const header = document.getElementById('header');
-        const sections = document.querySelectorAll('section');
-
-        function activateMenuItem() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - header.offsetHeight; 
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        }
+        // Removed sections detection for active link on this page, as it's a single long list
+        // and 'Imóveis' link should stay active.
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) { 
@@ -1426,43 +1048,90 @@
             } else {
                 header.classList.remove('scrolled');
             }
-            activateMenuItem();
+            // activateMenuItem(); // Removed as it's not ideal for this page structure
         });
 
-        document.addEventListener('DOMContentLoaded', activateMenuItem);
+        // Keep 'Imóveis' link active on this page when loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentImoveisLink = document.querySelector('a[href="index.html#properties"]');
+            if (currentImoveisLink) {
+                currentImoveisLink.classList.remove('active'); // Remove from index.html link
+            }
+            const allImoveisLink = document.querySelector('a[href="#all-properties"]');
+            if (allImoveisLink) {
+                allImoveisLink.classList.add('active'); // Add to this page's link
+            }
+        });
 
-        // Formulário de Contato
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+
+        // Filtro de Imóveis (Reativado para esta página)
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const propertyCards = document.querySelectorAll('.property-card');
+        const cityFilter = document.getElementById('cityFilter');
+        const neighborhoodFilter = document.getElementById('neighborhoodFilter');
+
+        function filterProperties() {
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            const selectedCity = cityFilter.value;
+            const selectedNeighborhood = neighborhoodFilter.value;
             
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            contactForm.reset();
+            propertyCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const city = card.getAttribute('data-city');
+                const neighborhood = card.getAttribute('data-neighborhood');
+                
+                const categoryMatch = activeFilter === 'all' || category.includes(activeFilter);
+                const cityMatch = selectedCity === 'all' || city === selectedCity;
+                const neighborhoodMatch = selectedNeighborhood === 'all' || neighborhood === selectedNeighborhood;
+                
+                if (categoryMatch && cityMatch && neighborhoodMatch) {
+                    card.style.display = 'flex'; 
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+                filterProperties();
+            });
         });
 
-        // Smooth Scrolling para links do menu
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                const headerOffset = header.offsetHeight; 
-                
-                if (targetElement) {
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset;
+        cityFilter.addEventListener('change', filterProperties);
+        neighborhoodFilter.addEventListener('change', filterProperties);
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+        // Initial filter when page loads
+        document.addEventListener('DOMContentLoaded', filterProperties);
+
+
+        // Smooth Scrolling para links do menu (adaptado para links internos e externos)
+        document.querySelectorAll('a[href^="index.html#"], a[href^="#all-properties"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith("#")) { // Internal link on this page
+                    e.preventDefault();
+                    const targetId = href;
+                    const targetElement = document.querySelector(targetId);
+                    const headerOffset = header.offsetHeight; 
                     
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
+                    if (targetElement) {
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        if (mainNav.classList.contains('active')) {
+                            mainNav.classList.remove('active');
+                        }
                     }
                 }
+                // External links (e.g., to index.html) will behave as normal
             });
         });
 
@@ -1505,9 +1174,8 @@
             sectionObserver.observe(section);
         });
 
-        window.addEventListener('load', () => {
-            document.querySelector('.hero-content').style.opacity = '1';
-        });
+        // No need for hero-content opacity animation on this page, as it's a simpler hero.
+        // If you want one, you'd add a class to .page-hero and apply the animation.
     </script>
 </body>
 </html>
