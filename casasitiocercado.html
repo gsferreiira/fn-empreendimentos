@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Residencial Morona - FN Empreendimentos</title>
+    <title>Casa Térrea Sítio Cercado - Curitiba/PR - FN Empreendimentos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="assets/logofnsf.png" type="image/x-icon">
@@ -621,65 +621,6 @@
             min-width: 140px;
         }
 
-        /* Contact Form */
-        .contact-form-section {
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .contact-form-section h3 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--secondary-light);
-            font-size: 1rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-            background-color: var(--light);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus,
-        .contact-form select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
-            background-color: var(--white);
-        }
-
-        .contact-form textarea {
-            height: 180px;
-            resize: vertical;
-        }
-
-        .contact-form .btn {
-            width: 100%;
-            margin-top: 10px;
-            padding: 14px;
-            font-size: 1.05rem;
-        }
-
         /* Similar Properties */
         .similar-properties-section {
             background-color: var(--light);
@@ -856,7 +797,7 @@
             opacity: 0.8;
         }
 
-        /* Fixed Buttons */
+        /* Fixed Buttons - Replaced .fab-container and .fab-button */
         .fixed-buttons {
             position: fixed;
             bottom: 25px;
@@ -909,6 +850,7 @@
             background-color: var(--secondary-light);
         }
 
+
         /* Responsividade */
         @media (max-width: 1024px) {
             .property-content-wrapper {
@@ -931,18 +873,6 @@
         }
 
         @media (max-width: 768px) {
-            .fixed-buttons {
-                bottom: 15px;
-                right: 15px;
-                gap: 10px;
-            }
-
-            .fixed-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-            }
-
             .property-hero {
                 padding: 20px 0 30px;
             }
@@ -968,14 +898,12 @@
             .video-tour,
             .location-map,
             .agent-info,
-            .contact-form-section,
             .sidebar-block {
                 padding: 25px;
             }
             
             .content-block h3,
             .agent-info h3,
-            .contact-form-section h3,
             .section-title h2 {
                 font-size: 1.8rem;
             }
@@ -1013,6 +941,17 @@
                 font-size: 1.5rem;
             }
 
+            .fixed-buttons {
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+            }
+
+            .fixed-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1046,7 +985,6 @@
             
             .content-block h3,
             .agent-info h3,
-            .contact-form-section h3,
             .section-title h2 {
                 font-size: 1.6rem;
                 margin-bottom: 15px;
@@ -1079,10 +1017,6 @@
             
             .details-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .contact-form-section {
-                padding: 25px 20px;
             }
             
             .properties-grid {
@@ -1119,7 +1053,7 @@
         <div class="container header-container">
             <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar aos Imóveis</a>
             <div class="logo">
-                <img src="assets/logofnsf.png" alt="FN Empreendimentos Logo">
+                <img src="assets/logofnsf.png" alt="FN Empreendimentos">
                 <h1>FN <span>Empreendimentos</span></h1>
             </div>
         </div>
@@ -1128,38 +1062,56 @@
     <section class="property-hero">
         <div class="container">
             <div class="property-title-block">
-                <h1>Residencial Morona</h1>
-                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Rua Antônio Morona, 55 — Capão da Imbuia</p>
+                <h1>Casa Térrea no Sítio Cercado</h1>
+                <p class="property-location"><i class="fas fa-map-marker-alt"></i> Rua Lúcio de Oliveira Lara – Bosque Sambaqui, Sítio Cercado - Curitiba/PR</p>
             </div>
 
             <div class="image-gallery-section">
                 <div class="main-image">
-                    <img id="mainPropertyImage" src="assets/resmorona/frente.jpg" alt="Residencial Morona - Fachada Principal">
-                    </div>
+                    <img id="mainPropertyImage" src="https://via.placeholder.com/1000x500?text=Casa+Sítio+Cercado+-+Frente" alt="Casa Sítio Cercado - Frente">
+                </div>
                 <div class="thumbnail-carousel-container">
                     <button class="thumbnail-nav-button left" aria-label="Miniaturas Anteriores"><i class="fas fa-chevron-left"></i></button>
                     <div class="thumbnail-gallery" id="thumbnailGallery">
-                        <img class="thumbnail-item active" src="assets/resmorona/frente.jpg" alt="Residencial Morona Fachada">
-                        <img class="thumbnail-item" src="assets/resmorona/entradagaragem1.jpg" alt="Residencial Morona Entrada Garagem 1">
-                        <img class="thumbnail-item" src="assets/resmorona/entradagaragem2.jpg" alt="Residencial Morona Entrada Garagem 2">
-                        <img class="thumbnail-item" src="assets/resmorona/frente2.jpg" alt="Residencial Morona Fachada Detalhe">
-                        <img class="thumbnail-item" src="assets/resmorona/entradacasa.jpg" alt="Residencial Morona Entrada Casa">
-                        <img class="thumbnail-item" src="assets/resmorona/entradacasa2.jpg" alt="Residencial Morona Entrada Casa 2">
-                        <img class="thumbnail-item" src="assets/resmorona/antesfundo.jpg" alt="Residencial Morona Antes Fundo">
-                        <img class="thumbnail-item" src="assets/resmorona/escadazero.jpg" alt="Residencial Morona Escada Zero">
-                        <img class="thumbnail-item" src="assets/resmorona/escada2.jpg" alt="Residencial Morona Escada 2">
-                        <img class="thumbnail-item" src="assets/resmorona/escada.jpg" alt="Residencial Morona Escada">
-                        <img class="thumbnail-item" src="assets/resmorona/quartovaranda.jpg" alt="Residencial Morona Quarto Varanda">
-                        <img class="thumbnail-item" src="assets/resmorona/quarto2.jpg" alt="Residencial Morona Quarto 2">
-                        <img class="thumbnail-item" src="assets/resmorona/quarto3.jpg" alt="Residencial Morona Quarto 3">
-                        <img class="thumbnail-item" src="assets/resmorona/banheiro2.jpg" alt="Residencial Morona Banheiro 2">
-                        <img class="thumbnail-item" src="assets/resmorona/escada3.jpg" alt="Residencial Morona Escada 3">
-                        <img class="thumbnail-item" src="assets/resmorona/segundoandar.jpg" alt="Residencial Morona Segundo Andar">
-                        <img class="thumbnail-item" src="assets/resmorona/segundoandar2.jpg" alt="Residencial Morona Segundo Andar 2">
-                        <img class="thumbnail-item" src="assets/resmorona/cobertura.jpg" alt="Residencial Morona Cobertura">
-                        <img class="thumbnail-item" src="assets/resmorona/churrasqueira.jpg" alt="Residencial Morona Churrasqueira">
-                        <img class="thumbnail-item" src="assets/resmorona/frentecobertura.jpg" alt="Residencial Morona Frente Cobertura">
-                        <img class="thumbnail-item" src="assets/resmorona/garagem.jpg" alt="Residencial Morona Garagem">
+                        <img class="thumbnail-item active" src="assets/casasitiocerc/fotofrentefora.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fotofrenteforadiagonal.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fotofrenteforadiagonalesq.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fotofrentediagonal.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fotofrentelado.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fotofrenteladoesq.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/garagemrua.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/garagemrua2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/sala.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/sala2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/sala3.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/sala4.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto1.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto1.2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto1.3.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto2.2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto2.3.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto2.4.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/banheiro.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/banheiro2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/banheiro3.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto3.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto3.1.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto3.2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto3.3.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/quarto3.4.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/cozinha.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/cozinha2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/cozinha3.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/cozinha4.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/cozinha5.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fundos.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fundos2.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fundos3.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fundos4.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/fundos5.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/lavanderia.jpg">
+                        <img class="thumbnail-item" src="assets/casasitiocerc/salabagunca.jpg">
                     </div>
                     <button class="thumbnail-nav-button right" aria-label="Próximas Miniaturas"><i class="fas fa-chevron-right"></i></button>
                 </div>
@@ -1172,72 +1124,73 @@
             <div class="property-content-wrapper">
                 <div class="property-details-col">
                     <section class="content-block property-description">
-                        <h3>Descrição do Empreendimento</h3>
-                        <p>O <strong>Residencial Morona</strong>, da FN Empreendimentos, é um tríplex de alto padrão localizado em uma região nobre do Capão da Imbuia. Este empreendimento oferece a tranquilidade de um bairro residencial, com fácil acesso a comércios, serviços e vias principais.</p>
-                        <p>Com 135,75m² de área privativa e um terraço descoberto de 35,88m², este tríplex foi cuidadosamente planejado para oferecer conforto, praticidade e sofisticação em cada detalhe.</p>
-                        <p>O imóvel conta com 3 quartos, incluindo uma suíte máster com persianas integradas manuais, e um total de 4 banheiros, sendo um lavabo. O terraço possui infraestrutura para jacuzzi e uma churrasqueira, ideal para momentos de lazer.</p>
-                        <p>Os acabamentos são de alto padrão em todos os ambientes, com escadas em granito e piso em porcelanato Incepa nas áreas frias, sala e ático. Além disso, o empreendimento dispõe de aquecimento a gás na cozinha e nos banheiros, e infraestrutura para ar-condicionado em todos os ambientes. É a opção ideal para quem busca qualidade de vida ou um investimento seguro em uma região em constante valorização.</p>
+                        <h3>Descrição do Imóvel</h3>
+                        <p>A **OPORTUNIDADE QUE VOCÊ ESPERAVA EM CURITIBA!** Esta casa térrea à venda no Sítio Cercado oferece o conforto e a praticidade que você busca para o seu novo lar. Com uma área construída de 134,4 m², ela é ideal para quem procura espaço e funcionalidade.</p>
+                        <p>O imóvel conta com 3 quartos espaçosos, perfeitos para acomodar sua família com conforto. Possui 1 banheiro bem distribuído e 2 vagas de garagem, sendo 1 coberta e 1 descoberta, garantindo comodidade para seus veículos.</p>
+                        <p>Desfrute de momentos de lazer e confraternização no espaço gourmet com churrasqueira. A casa também dispõe de lavanderia, despensa e um quintal privativo, agregando ainda mais praticidade ao seu dia a dia.</p>
+                        <p>Sua localização é privilegiada, próxima a escolas, transporte público e comércios locais, facilitando o acesso a tudo o que você precisa. É um lar pronto para morar em uma região tranquila e com fácil acesso, ideal para quem busca conforto, praticidade e qualidade de vida em Curitiba.</p>
+                        <p>Não perca essa chance, entre em contato agora e agende sua visita!</p>
                     </section>
 
                     <section class="content-block video-tour">
-                        <h3>Tour Virtual / Vídeo do Empreendimento</h3>
+                        <h3>Tour Virtual / Vídeo do Imóvel</h3>
                         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <p>Assista ao vídeo para ter uma visão completa deste incrível empreendimento.</p>
+                        <p>Assista ao vídeo para ter uma visão completa deste incrível imóvel.</p>
                     </section>
                 </div>
 
                 <aside class="property-sidebar-col">
                     <div class="sidebar-block price-actions-block">
-                        <div class="property-price">Preço sob Consulta</div>
+                        <div class="property-price">R$ 349.900</div>
                         <div class="quick-actions">
-                            <a href="https://wa.me/5541991320505?text=Olá! Tenho interesse no Residencial Morona. Poderia me dar mais informações sobre valores?" target="_blank" class="btn whatsapp"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+                            <a href="https://wa.me/5541991320505?text=Olá! Tenho interesse na casa térrea no Sítio Cercado. Poderia me dar mais informações?" target="_blank" class="btn whatsapp"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
                         </div>
                     </div>
 
                     <div class="sidebar-block">
-                        <h3>Características Principais do Triplex</h3>
+                        <h3>Características Principais da Casa</h3>
                         <div class="details-grid">
                             <div class="detail-item">
-                                <i class="fas fa-bed"></i> <span>3 Quartos (1 Suíte)</span>
+                                <i class="fas fa-bed"></i> <span>3 Quartos Espaçosos</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-bath"></i> <span>4 Banheiros (incl. Lavabo)</span>
+                                <i class="fas fa-bath"></i> <span>1 Banheiro</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-car"></i> <span>Vagas de Garagem</span>
+                                <i class="fas fa-car"></i> <span>2 Vagas de Garagem (1 Coberta + 1 Descoberta)</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-ruler-combined"></i> <span>135,75m² Área Privativa</span>
+                                <i class="fas fa-ruler-combined"></i> <span>134,4 m² Área Constr.</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-compress-alt"></i> <span>35,88m² Terraço Descoberto</span>
+                                <i class="fas fa-home"></i> <span>Casa Térrea</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-thermometer-half"></i> <span>Aquecimento a Gás</span>
+                                <i class="fas fa-fire"></i> <span>Espaço Gourmet com Churrasqueira</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="sidebar-block">
-                        <h3>Detalhes do Empreendimento</h3>
+                        <h3>Detalhes da Casa</h3>
                         <div class="details-grid">
                             <div class="detail-item">
-                                <i class="fas fa-city"></i> <span>Construtora FN Empreendimentos</span>
+                                <i class="fas fa-leaf"></i> <span>Quintal</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-bath"></i> <span>Jacuzzi (Infraestrutura)</span>
+                                <i class="fas fa-washing-machine"></i> <span>Lavanderia</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-fire"></i> <span>Churrasqueira</span>
+                                <i class="fas fa-box"></i> <span>Despensa</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-fan"></i> <span>Infra. Ar-Condicionado</span>
+                                <i class="fas fa-school"></i> <span>Próxima de Escolas</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-star"></i> <span>Alto Padrão</span>
+                                <i class="fas fa-bus"></i> <span>Próxima de Transporte Público</span>
                             </div>
                             <div class="detail-item">
-                                <i class="fas fa-stairs"></i> <span>Escadas em Granito</span>
+                                <i class="fas fa-store"></i> <span>Próxima de Comércios</span>
                             </div>
                         </div>
                     </div>
@@ -1245,30 +1198,30 @@
             </div>
 
             <section class="content-block location-map">
-                <h3>Localização do Empreendimento</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.2201416954316!2d-49.20815462444391!3d-25.43085697753365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4c775a2fcf1%3A0x67a3a943a41c1b1!2sRua%20Ant%C3%B4nio%20Morona%2C%2055%20-%20Cap%C3%A3o%20da%20Imbuia%2C%20Curitiba%20-%20PR%2C%2082810-530!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" alt="Mapa de localização do Residencial Morona"></iframe>
-                <p>O Residencial Morona está situado na Rua Antônio Morona, 55, no Capão da Imbuia, Curitiba - PR. Uma localização privilegiada que combina a tranquilidade de um bairro residencial com a conveniência de ter comércios e serviços próximos, além de fácil acesso às principais vias.</p>
+                <h3>Localização do Imóvel</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1799.7614406219818!2d-49.2597511611269!3d-25.554265174541534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcfbdb5a3b5cf7%3A0xbeb7bc7b5d36f69b!2sR.%20L%C3%BAcio%20de%20Oliveira%20Lara%2C%20483%20-%20S%C3%ADtio%20Cercado%2C%20Curitiba%20-%20PR%2C%2081935-158!5e0!3m2!1sen!2sbr!4v1752841366628!5m2!1sen!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p>A casa está situada na Rua Lúcio de Oliveira Lara – Bosque Sambaqui, Sítio Cercado, Curitiba - PR. Uma localização tranquila e com fácil acesso a todas as conveniências que você precisa.</p>
             </section>
 
             <section class="content-block agent-info">
                 <h3>Seu Agente Imobiliário</h3>
                 <div class="agent-card">
                     <div class="agent-avatar">
-                        <img src="assets/agent-placeholder.jpg" alt="Foto do Agente José Ferreira">
+                        <img src="assets/fotojose.jfif" alt="Foto do Agente">
                     </div>
                     <div class="agent-details">
                         <h4>José Ferreira</h4>
-                        <p>Especialista em Lançamentos e Imóveis em Curitiba</p>
-                        <p>CRECI: 12345-F</p>
+                        <p>Especialista em Imóveis Residenciais em Curitiba</p>
+                        <p>CRECI: 51913</p>
                         <div class="agent-contact-buttons">
-                            <a href="https://wa.me/5541991320505?text=Olá José! Tenho interesse no Residencial Morona. Poderíamos conversar?" target="_blank" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="https://wa.me/5541991320505?text=Olá José! Tenho interesse na casa térrea no Sítio Cercado. Poderíamos conversar?" target="_blank" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                             <a href="mailto:josefds@remax.com.br" class="btn"><i class="fas fa-envelope"></i> Email</a>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-    </section>
+    </main>
 
     <section class="similar-properties-section">
         <div class="container">
@@ -1278,7 +1231,7 @@
             <div class="properties-grid">
                 <div class="property-card">
                     <a href="#" class="property-link">
-                        <img src="https://images.unsplash.com/photo-1576941089067-2fd3f7375a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Moderno em Curitiba">
+                        <img src="https://images.unsplash.com/photo-1576941089067-2fd3f7375a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Moderno">
                         <div class="property-info">
                             <h3>Apartamento Moderno</h3>
                             <p><i class="fas fa-map-marker-alt"></i> Bairro Central, Curitiba</p>
@@ -1293,10 +1246,10 @@
                 </div>
                 <div class="property-card">
                     <a href="#" class="property-link">
-                        <img src="https://images.unsplash.com/photo-1564013799907-f0f5d4608c0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa em Condomínio em Curitiba">
+                        <img src="https://images.unsplash.com/photo-1564013799907-f0f5d4608c0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Casa em Condomínio">
                         <div class="property-info">
                             <h3>Casa em Condomínio</h3>
-                            <p><i class="fas fa-map-marker-alt"></i> Outro Bairro, Curitiba</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Jd. Amélia, Curitiba</p>
                             <p class="price">R$ 780.000</p>
                             <div class="property-details">
                                 <div class="detail"><i class="fas fa-bed"></i> 3 Quartos</div>
@@ -1308,10 +1261,10 @@
                 </div>
                 <div class="property-card">
                     <a href="#" class="property-link">
-                        <img src="https://images.unsplash.com/photo-1516450410668-800701140028?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento com Terraço em Curitiba">
+                        <img src="https://images.unsplash.com/photo-1516450410668-800701140028?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Apartamento Garden">
                         <div class="property-info">
-                            <h3>Apartamento com Terraço</h3>
-                            <p><i class="fas fa-map-marker-alt"></i> Bairro Próximo, Curitiba</p>
+                            <h3>Apartamento Garden</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> Vargem Grande, Curitiba</p>
                             <p class="price">R$ 620.000</p>
                             <div class="property-details">
                                 <div class="detail"><i class="fas fa-bed"></i> 2 Quartos</div>
@@ -1352,13 +1305,14 @@
                     <ul class="footer-links">
                         <li><a href="#">Compra de Imóveis</a></li>
                         <li><a href="#">Venda de Imóveis</a></li>
+                        <li><a href="#">Locação</a></li>
+                        <li><a href="#">Avaliação de Imóveis</a></li>
                         <li><a href="#">Consultoria Imobiliária</a></li>
-                        <li><a href="#">Lançamentos</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 FN Empreendimentos. Todos os direitos reservados.</p>
+                <p>© 2019 FN Empreendimentos. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -1386,7 +1340,6 @@
                 currentIndex = index;
                 thumbnailItems.forEach(item => item.classList.remove('active'));
                 thumbnailItems[currentIndex].classList.add('active');
-                // Corrected: Removed .replace('-thumb', '') as image paths don't use it.
                 mainPropertyImage.src = thumbnailItems[currentIndex].src;
 
                 // Rola a galeria de miniaturas para manter a miniatura ativa visível
